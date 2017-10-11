@@ -1,42 +1,31 @@
 import { Component, OnInit,Inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { CreateConfigService } from './create-config.service';
 
 @Component({
   selector: 'app-create-config',
   templateUrl: './create-config.component.html',
-  styleUrls: ['./create-config.component.scss']
+  styleUrls: ['./create-config.component.scss'],
+  providers: [CreateConfigService]
 })
 export class CreateConfigComponent implements OnInit {
 
-  objs: any = [];
-  alertMessage: string;
-  alertType: string;
-  //查询条件
-  startTime:Date;
-  endTime:Date;
-  manualFlag:string = '';
-  incomeNumber:string = '';
-  serviceType:string = '';
-  totalItems: number = 1;
-  currentPage: number = 1;
-  //判定alert输入值变化
-  alertNumber = 1;
-  //蒙层显隐
-  showModal = false;
-
-  query: any;
-  zh:any;
-  constructor(@Inject('help') private helpService) { }
+  constructor(@Inject('help') private helpService, private createConfigService: CreateConfigService, private router: Router) { }
 
   ngOnInit() {
 
   }
 
-
-  //获取列表
-  getSellerList() {
-
+  onSubmit(config){
+    let data = config.value;
+    this.createConfigService.addconfig(data).subscribe((res: any) => {
+      if(res.code === 0){
+        this.router.navigate(['/content/configManager']);
+      }else{
+        alert('创建新配置失败');
+      }
+    })
   }
-
 
 
 }
