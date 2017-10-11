@@ -14,7 +14,7 @@ export class DeployNewClusterService {
 
   //部署新集群
   addCluster(json: any): Observable<Response>{
-    return this.http.post('/dashboard/clustercentre/clustermng/newcluster/addcluster?token='+this.token,json)
+    return this.http.post(AppUtil.BACKEND_API_ROOT_URL+ '/dashboard/clustercentre/clustermng/newcluster/addcluster?token='+this.token,json)
     .map((res: Response) => {
       return res.json();
     })
