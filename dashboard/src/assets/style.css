@@ -1598,7 +1598,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   height: 3.16667rem; }
 
 .form-group {
-  margin-bottom: 1rem; }
+  margin-bottom: 1.7rem; }
 
 .form-text {
   display: block;
@@ -13706,3 +13706,10 @@ base-chart.chart {
               font-size: 14px;
               margin: -2px 0px 0px 5px;
               color: #E3E8EC; }
+
+small.txt-error{
+    color:red;
+    position: absolute;
+    margin-left: 0.2rem;
+    margin-top: 0.1rem;
+}

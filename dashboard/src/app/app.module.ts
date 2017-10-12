@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RootRouterModule } from './app.router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -17,6 +17,8 @@ import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/sidebar.directive';
 import { AsideToggleDirective } from './shared/aside.directive';
 import { BreadcrumbsComponent } from './shared/breadcrumb.component';
 import { TableCheckboxDirectice } from './shared/table-checkbox.directive';
+import { FileValueAccessor } from './shared/fileValueAccessor.directive';
+import { FileValidator } from './shared/fileValidator.directive';
 import { DatepickerModule } from 'ngx-bootstrap/datepicker';
 import { CalendarModule, AutoCompleteModule,DialogModule} from 'primeng/primeng';
 import { AlertModule } from 'ngx-bootstrap/alert';
@@ -61,6 +63,8 @@ import { PagingComponent } from './common/paging/paging.component';
     NAV_DROPDOWN_DIRECTIVES,
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
+    FileValueAccessor,
+    FileValidator,
     BreadcrumbsComponent,
     TableCheckboxDirectice,
     ComfirmModelComponent,
@@ -87,6 +91,7 @@ import { PagingComponent } from './common/paging/paging.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RootRouterModule,
     // NKDatetimeModule,
