@@ -775,19 +775,21 @@ export class SysMonitorComponent implements OnInit {
           label: {
             normal: {
               formatter: function (params) {
-                return params.name + '\n'
+                return params.name
                   //+
                   //params.value[2];
               },
               position: 'top',
-              show: true
-            }
-          },
-          itemStyle: {
-            normal: {
-              color: '#fff',
+              show: true,
+              color:'#808080'
             }
           }
+          //,
+          //itemStyle: {
+          //  normal: {
+          //    color: '#fff',
+          //  }
+          //}
         },
         {
           name: '',
@@ -816,17 +818,18 @@ export class SysMonitorComponent implements OnInit {
               },
               position: 'center',
               show: true,
-              color:'#9d9d9d'
+              color:'#ffffff'
             },
             emphasis: {
               show: true
             }
-          },
-          itemStyle: {
-            normal: {
-              color: '#fff',
-            }
           }
+          //,
+          //itemStyle: {
+          //  normal: {
+          //    color: '#fff',
+          //  }
+          //}
         },
         {
           name: '',
@@ -851,16 +854,17 @@ export class SysMonitorComponent implements OnInit {
           label: {
             normal: {
               formatter: function (params) {
-                return params.value[2];
+                return '';
               },
               position: 'center',
               show: true,
-              color:'#9d9d9d'
+              color:'#ffffff'
             },
             emphasis: {
               show: true
             }
-          },
+          }
+          ,
           itemStyle: {
             normal: {
               color: 'rgba(241,89,79,0.50)',
