@@ -65,11 +65,11 @@ export class SysMonitorComponent implements OnInit {
     this.hasBar10Chart = false;
 
 
-    let param = {
-      company_account: 'test2017',
-      login_name: 'test2017',
-      password: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
-    };
+    //let param = {
+    //  company_account: 'test2017',
+    //  login_name: 'test2017',
+    //  password: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+    //};
     let _this = this;
 
     _this.refresh();
@@ -482,6 +482,7 @@ export class SysMonitorComponent implements OnInit {
 
     this.sysMonitorService.getTradeOrderInfo({}).subscribe(
         res => {
+          console.log(res);
         this.hasLine7Chart = true;
         this.hasBar8Chart = true;
         this.hasLine9Chart = true;
@@ -775,19 +776,21 @@ export class SysMonitorComponent implements OnInit {
           label: {
             normal: {
               formatter: function (params) {
-                return params.name + '\n'
+                return params.name
                   //+
                   //params.value[2];
               },
               position: 'top',
-              show: true
-            }
-          },
-          itemStyle: {
-            normal: {
-              color: '#fff',
+              show: true,
+              color:'#808080'
             }
           }
+          //,
+          //itemStyle: {
+          //  normal: {
+          //    color: '#fff',
+          //  }
+          //}
         },
         {
           name: '',
@@ -816,17 +819,18 @@ export class SysMonitorComponent implements OnInit {
               },
               position: 'center',
               show: true,
-              color:'#9d9d9d'
+              color:'#ffffff'
             },
             emphasis: {
               show: true
             }
-          },
-          itemStyle: {
-            normal: {
-              color: '#fff',
-            }
           }
+          //,
+          //itemStyle: {
+          //  normal: {
+          //    color: '#fff',
+          //  }
+          //}
         },
         {
           name: '',
@@ -851,16 +855,17 @@ export class SysMonitorComponent implements OnInit {
           label: {
             normal: {
               formatter: function (params) {
-                return params.value[2];
+                return '';
               },
               position: 'center',
               show: true,
-              color:'#9d9d9d'
+              color:'#ffffff'
             },
             emphasis: {
               show: true
             }
-          },
+          }
+          ,
           itemStyle: {
             normal: {
               color: 'rgba(241,89,79,0.50)',
@@ -889,10 +894,10 @@ export class SysMonitorComponent implements OnInit {
         name: total[3].percent + " " + total[3].value,
         value: total[3].value
       }, {
-        name: total[2].percent + " " + total[4].value,
+        name: total[2].percent + " " + total[2].value,
         value: total[2].value
       }, {
-        name: total[1].percent + " " + total[4].value,
+        name: total[1].percent + " " + total[1].value,
         value: total[1].value
       }, {
         name: total[0].percent + " " + total[0].value,
@@ -987,10 +992,10 @@ export class SysMonitorComponent implements OnInit {
         name: order[3].percent + " " + order[3].value,
         value: order[3].value
       }, {
-        name: order[2].percent + " " + order[4].value,
+        name: order[2].percent + " " + order[2].value,
         value: order[2].value
       }, {
-        name: order[1].percent + " " + order[4].value,
+        name: order[1].percent + " " + order[1].value,
         value: order[1].value
       }, {
         name: order[0].percent + " " + order[0].value,

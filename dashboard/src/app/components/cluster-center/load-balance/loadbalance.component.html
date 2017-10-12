@@ -34,11 +34,46 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-12">
               <div class="card card-accent-success">
                 <div class="card-header">外部负载均衡</div>
                 <div class="card-block">
-                  <table class="table">
+                  <!--{"name":"Ib1","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+                  "createTime":"2017.x.x"},-->
+                  <p-dataTable  class="table" [value]="loadbalanceListOut"  [rows]="3" [paginator]="true" [pageLinks]="3"   dataKey="name">
+                    <p-column field="name" header="负载均衡名称" ></p-column>
+                    <p-column field="balance" header="所属集群"  ></p-column>
+                    <p-column field="dns" header="dns"></p-column>
+                    <p-column field="protocol" header="协议" ></p-column>
+                    <p-column field="port" header="端口" ></p-column>
+                    <p-column field="state" header="状态" ></p-column>
+                    <p-column field="createTime" header="创建时间" ></p-column>
+                    <p-column field="button" header="操作">
+                      <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
+                        <span>Dribbble</span>
+                      </button>
+                      <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
+                        <span>Dribbble</span>
+                      </button>
+                    </p-column>
+                  </p-dataTable>
+                  <!--<p-dataTable [value]="loadbalanceList" [rows]="1" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10]"  dataKey="name">
+                    <p-column [style]="{'width':'38px'}" selectionMode="multiple"></p-column>
+                    <p-column field="name" header="序号" [sortable]="true"></p-column>
+                    <p-column field="info" header="用户" [sortable]="true" [editable]="true"></p-column>
+                    <p-column field="size" header="注册时间" [sortable]="true" [editable]="true"></p-column>
+                    <p-column field="number" header="最后登录" [sortable]="true" [editable]="true"></p-column>
+                    <p-column>
+                      <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
+                        <span>Dribbble</span>
+                      </button>
+                      <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
+                        <span>Dribbble</span>
+                      </button>
+                    </p-column>
+                  </p-dataTable>-->
+
+                  <!--<table class="table">
                     <thead>
                     <tr>
                       <th>负载均衡名称</th>
@@ -52,41 +87,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>lb 3</td>
-                      <td>app 2</td>
-                      <td>xxx.xxx.xxx.xxx</td>
-                      <td>https</td>
-                      <td>451</td>
-                      <td>running</td>
-                      <td>2017.x.x</td>
-                      <td>
-                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
-                          <span>Dribbble</span>
-                        </button>
-                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
-                          <span>Dribbble</span>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>lb 2</td>
-                      <td>app 3</td>
-                      <td>xxx.xxx.xxx.xxx</td>
-                      <td>https</td>
-                      <td>8080</td>
-                      <td>running</td>
-                      <td>2017.x.x</td>
-                      <td>
-                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
-                          <span>Dribbble</span>
-                        </button>
-                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
-                          <span>Dribbble</span>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
+                    &lt;!&ndash;<tr>
                       <td>lb 1</td>
                       <td>app 1</td>
                       <td>xxx.xxx.xxx.xxx</td>
@@ -102,11 +103,32 @@
                           <span>Dribbble</span>
                         </button>
                       </td>
-                    </tr>
-                    </tbody>
-                  </table>
+                    </tr>&ndash;&gt;
 
-                  <ul class="pagination">
+
+                    <tr *ngFor="let post of loadbalanceListOut">
+                      <td>{{post.name}}</td>
+                      <td>{{post.info}}</td>
+                      <td>{{post.size}}</td>
+                      <td>{{post.number}}</td>
+                      <td>{{post.state}}</td>
+                      <td>{{post.loadbalanceout}}</td>
+                      <td>{{post.createTime}}</td>
+                      <td>
+                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
+                          <span>Dribbble</span>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
+                          <span>Dribbble</span>
+                        </button>
+                      </td>
+                    </tr>
+
+
+                    </tbody>
+                  </table>-->
+
+                  <!--<ul class="pagination">
                     <li class="page-item"><a class="page-link" href="#">Prev</a>
                     </li>
                     <li class="page-item active">
@@ -120,7 +142,7 @@
                     </li>
                     <li class="page-item"><a class="page-link" href="#">Next</a>
                     </li>
-                  </ul>
+                  </ul>-->
                 </div>
               </div>
 
@@ -132,7 +154,24 @@
               <div class="card card-accent-primary">
                 <div class="card-header">内部负载均衡</div>
                 <div class="card-block">
-                  <table class="table">
+                  <p-dataTable  class="table" [value]="loadbalanceListIn"  [rows]="3" [paginator]="true" [pageLinks]="5"   dataKey="name">
+                    <p-column field="name" header="负载均衡名称" ></p-column>
+                    <p-column field="balance" header="所属集群"  ></p-column>
+                    <p-column field="dns" header="dns"></p-column>
+                    <p-column field="protocol" header="协议" ></p-column>
+                    <p-column field="port" header="端口" ></p-column>
+                    <p-column field="state" header="状态" ></p-column>
+                    <p-column field="createTime" header="创建时间" ></p-column>
+                    <!--<p-column header="操作" [sortable]="false">
+                      <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
+                        <span>Dribbble</span>
+                      </button>
+                      <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
+                        <span>Dribbble</span>
+                      </button>
+                    </p-column>-->
+                  </p-dataTable>
+                  <!--<table class="table">
                     <thead>
                     <tr>
                       <th>负载均衡名称</th>
@@ -146,41 +185,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>lb 3</td>
-                      <td>app 2</td>
-                      <td>xxx.xxx.xxx.xxx</td>
-                      <td>https</td>
-                      <td>451</td>
-                      <td>running</td>
-                      <td>2017.x.x</td>
-                      <td>
-                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
-                          <span>Dribbble</span>
-                        </button>
-                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
-                          <span>Dribbble</span>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>lb 2</td>
-                      <td>app 3</td>
-                      <td>xxx.xxx.xxx.xxx</td>
-                      <td>https</td>
-                      <td>8080</td>
-                      <td>running</td>
-                      <td>2017.x.x</td>
-                      <td>
-                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
-                          <span>Dribbble</span>
-                        </button>
-                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
-                          <span>Dribbble</span>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
+                    &lt;!&ndash;<tr>
                       <td>lb 1</td>
                       <td>app 1</td>
                       <td>xxx.xxx.xxx.xxx</td>
@@ -196,11 +201,29 @@
                           <span>Dribbble</span>
                         </button>
                       </td>
+                    </tr>&ndash;&gt;
+                    <tr *ngFor="let post of loadbalanceListIn">
+                      <td>{{post.name}}</td>
+                      <td>{{post.info}}</td>
+                      <td>{{post.size}}</td>
+                      <td>{{post.number}}</td>
+                      <td>{{post.state}}</td>
+                      <td>{{post.loadbalanceout}}</td>
+                      <td>{{post.createTime}}</td>
+                      <td>
+                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
+                          <span>Dribbble</span>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
+                          <span>Dribbble</span>
+                        </button>
+                      </td>
                     </tr>
-                    </tbody>
-                  </table>
 
-                  <ul class="pagination">
+                    </tbody>
+                  </table>-->
+
+                  <!--<ul class="pagination">
                     <li class="page-item"><a class="page-link" href="#">Prev</a>
                     </li>
                     <li class="page-item active">
@@ -214,7 +237,7 @@
                     </li>
                     <li class="page-item"><a class="page-link" href="#">Next</a>
                     </li>
-                  </ul>
+                  </ul>-->
                 </div>
               </div>
 
