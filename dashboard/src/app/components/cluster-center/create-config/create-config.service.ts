@@ -6,20 +6,20 @@ import 'rxjs/add/operator/catch';
 import * as AppUtil from '../../../config/const';
 
 @Injectable()
-export class DeployNewClusterService {
+export class CreateConfigService {
   token: string;
-  constructor(private http: Http) { 
+  constructor(private http: Http) {
     this.token = localStorage.getItem('token');
   }
 
-  //部署新集群
-  addCluster(json: any): Observable<Response>{
-    return this.http.post(AppUtil.BACKEND_API_ROOT_URL+ '/dashboard/clustercentre/clustermng/newcluster/addcluster?token='+this.token,json)
+  //创建新配置
+  addconfig(json: any): Observable<Response>{
+    return this.http.post(AppUtil.BACKEND_API_ROOT_URL + '/dashboard/clustercentre/configmng/newconfig/addconfig?token=' + this.token,json)
     .map((res: Response) => {
       return res.json();
     })
     .catch((res: Response) => {
-      return Observable.throw('部署新集群失败')
+      return Observable.throw('创建新配置失败');
     })
   }
 }

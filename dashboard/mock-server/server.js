@@ -4967,6 +4967,23 @@ app.post('/dashboard/imagecentre/myimages/newimage/build',function(req, res){
   res.json(result);
 })
 
+//部署新集群
+app.post('/dashboard/clustercentre/clustermng/newcluster/addcluster',function(req, res){
+  var result = {
+    "code": 0,
+    "detail": "create new cluster success"
+  }
+  res.json(result);
+})
+
+//创建新配置
+app.post('/dashboard/clustercentre/configmng/newconfig/addconfig',function(req, res){
+  var result = {
+    "code": 0,
+    "detail": "create new config success"
+  }
+  res.json(result);
+})
 app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
