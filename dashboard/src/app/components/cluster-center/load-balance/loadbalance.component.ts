@@ -2,6 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { LoadBalanceService } from './loadbalance.service';
 import { DataTableModule } from 'primeng/primeng';
 import { ActivatedRoute, Router } from '@angular/router';
+
+class SearchParam{
+  public pageNo:Number;
+  public pageSize:Number;
+
+  constructor(){
+    this.pageNo = 1;
+    this.pageSize = 10;
+  }
+}
+
+
 @Component({
   selector: 'app-loadbalance',
   templateUrl: './loadbalance.component.html',
@@ -12,25 +24,20 @@ export class LoadBalanceComponent implements OnInit {
   public loadbalanceListOut: Array<any>;
   public loadbalanceListIn: Array<any>;
 
+  public searchParam:SearchParam;
+  public totalSize:Number;
+
   constructor(public loadBalanceService: LoadBalanceService,
               public router: Router,
               public activeRoute: ActivatedRoute) {
+      this.searchParam = new SearchParam();
   }
 
   ngOnInit() {
     this.loadBalanceService.getInfo({}).subscribe(
         res => {
         this.loadbalanceListOut = res.loadbalanceInfoOut;
-
-        /* 负载均衡名称	所属集群	dns	协议	端口	状态	创建时间	操作*/
-        /*this.loadbalanceListOut =[
-         {"name":"Ib1","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
-         "createTime":"2017.x.x"},
-         {"name":"Ib2","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
-         "createTime":"2017.x.x"},
-         {"name":"Ib3","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
-         "createTime":"2017.x.x"},
-         ];*/
+          this.totalSize = this.loadbalanceListOut.length;
         this.loadbalanceListIn = res.loadbalanceInfoIn;
       },
         error => {
@@ -53,16 +60,21 @@ export class LoadBalanceComponent implements OnInit {
     this.router.navigateByUrl('/workspace/components/cluster-center/load-balance/newuser');
   }
 
-  public blockUser(userId: Number): void {
-    console.log(userId);
-  }
+  //public blockUser(userId: Number): void {
+  //  console.log(userId);
+  //}
+  //
+  //public unBlockUser(userId: Number): void {
+  //  console.log(userId);
+  //}
+  //
+  //public resetPwd(userId: Number): void {
+  //  console.log(userId);
+  //}
 
-  public unBlockUser(userId: Number): void {
-    console.log(userId);
-  }
-
-  public resetPwd(userId: Number): void {
-    console.log(userId);
+  gotoPage(pagingInfo){
+    this.searchParam.pageNo = pagingInfo.currentPage;
+    //this.queryData();
   }
 
 }
