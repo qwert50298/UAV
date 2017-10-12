@@ -65,11 +65,11 @@ export class SysMonitorComponent implements OnInit {
     this.hasBar10Chart = false;
 
 
-    let param = {
-      company_account: 'test2017',
-      login_name: 'test2017',
-      password: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
-    };
+    //let param = {
+    //  company_account: 'test2017',
+    //  login_name: 'test2017',
+    //  password: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+    //};
     let _this = this;
 
     _this.refresh();

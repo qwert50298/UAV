@@ -46,11 +46,11 @@ export class PlatformComponent implements OnInit {
     this.hasBarChart = false;
     this.hasLineChart = false;
 
-    let param = {
-      company_account: 'test2017',
-      login_name: 'test2017',
-      password: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
-    };
+    //let param = {
+    //  company_account: 'test2017',
+    //  login_name: 'test2017',
+    //  password: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+    //};
     let _this = this;
 
     _this.refresh();
@@ -191,7 +191,7 @@ export class PlatformComponent implements OnInit {
 
         this.chart4 = {
           grid:{
-            left:"5%",
+            left:"15%",
             top:"20%",
             height:"50%"
           },
@@ -251,7 +251,7 @@ export class PlatformComponent implements OnInit {
         };
       },
         error => {
-        console.log(error); 
+        console.log(error);
         this.router.navigate(['login']);
       }
     );
