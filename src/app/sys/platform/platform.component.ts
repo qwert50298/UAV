@@ -31,7 +31,7 @@ export class PlatformComponent implements OnInit {
   public pv:any;
 
   public pageVisit: string;
-  public dataVolumn: string;
+  public dataVolumn: any;
   public hasPieChart: boolean;
   public hasBarChart: boolean;
   public hasLineChart: boolean;
@@ -95,8 +95,20 @@ export class PlatformComponent implements OnInit {
         this.memoryTotal = res.Memory.total;
         this.memoryPercent = res.Memory.percent;
         this.pageVisit = res.pv.today;
-        this.dataVolumn = res.DataVolume;
 
+          let dv = Math.floor(parseFloat(res.DataVolume.split("'").join(""))/(1024*1024));
+          this.dataVolumn = toThousands(dv);
+
+          function toThousands(num) {
+            var result = [ ], counter = 0;
+            num = (num || 0).toString().split('');
+            for (var i = num.length - 1; i >= 0; i--) {
+              counter++;
+              result.unshift(num[i]);
+              if (!(counter % 3) && i != 0) { result.unshift("'"); }
+            }
+            return result.join('');
+          }
 
         let option1 = {
           series: [{
