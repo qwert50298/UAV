@@ -8,6 +8,8 @@ import { HelpService } from './shared/help.service';
 import { LoginService } from './pages/service/login.service';
 import { AuthHttp, AuthConfig, AUTH_PROVIDERS, provideAuth } from 'angular2-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DataTableModule } from 'primeng/components/datatable/datatable';
+import { InputTextModule, ButtonModule } from 'primeng/primeng';
 
 // import { PagesModule }  from './pages/pages.module';
 import { NAV_DROPDOWN_DIRECTIVES } from './shared/nav-dropdown.directive';
@@ -49,7 +51,6 @@ import { DeployNewClusterComponent } from './components/cluster-center/deploy-ne
 
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './pages/login.component';
-
 
 @NgModule({
   declarations: [
@@ -96,7 +97,10 @@ import { LoginComponent } from './pages/login.component';
     AlertModule.forRoot(),
     TabsModule.forRoot(),
     AccordionModule.forRoot(),
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    InputTextModule,
+    ButtonModule,
+    DataTableModule
   ],
   providers: [{
     provide: LocationStrategy,

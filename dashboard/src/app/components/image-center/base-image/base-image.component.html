@@ -33,76 +33,82 @@
 
               <div class="tab-content">
                 <div class="tab-pane active" id="home" role="tabpanel" aria-expanded="true">
-                  <table class="table">
-                    <thead>
-                    <tr>
-                      <th>镜像名称</th>
-                      <th>操作系统</th>
-                      <th>类型</th>
-                      <th>创建时间</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td>centos 6.x 64</td>
-                      <td>centos 6.x 64</td>
-                      <td>通用镜像</td>
-                      <td>xxx.xxx.xxx</td>
-                    </tr>
-                    <tr>
-                      <td>centos 6.x 64</td>
-                      <td>centos 6.x 64</td>
-                      <td>通用镜像</td>
-                      <td>xxx.xxx.xxx</td>
-                    </tr>
-                    <tr>
-                      <td>centos 6.x 64</td>
-                      <td>centos 6.x 64</td>
-                      <td>通用镜像</td>
-                      <td>xxx.xxx.xxx</td>
-                    </tr>
-                    <tr>
-                      <td>centos 6.x 64</td>
-                      <td>centos 6.x 64</td>
-                      <td>通用镜像</td>
-                      <td>xxx.xxx.xxx</td>
-                    </tr>
-                    <tr>
-                      <td>centos 6.x 64</td>
-                      <td>centos 6.x 64</td>
-                      <td>通用镜像</td>
-                      <td>xxx.xxx.xxx</td>
-                    </tr>
-                    <tr>
-                      <td>debian 6.x 64</td>
-                      <td>debian 6.x 64</td>
-                      <td>通用镜像</td>
-                      <td>xxx.xxx.xxx</td>
-                    </tr>
-                    <tr>
-                      <td>ubuntu 6.x 64</td>
-                      <td>ubuntu 6.x 64</td>
-                      <td>通用镜像</td>
-                      <td>xxx.xxx.xxx</td>
-                    </tr>
-                    </tbody>
-                  </table>
+                  <p-dataTable  class="table" [value]="clusterList"  [rows]="3" [paginator]="true" [pageLinks]="3"   dataKey="name">
+                    <p-column field="Cluster_Name" header="镜像名称" ></p-column>
+                    <p-column field="Config_Name" header="操作系统"  ></p-column>
+                    <p-column field="Flavor" header="类型"></p-column>
+                    <p-column field="Create_At" header="创建时间" ></p-column>
+                  </p-dataTable>
+                  <!--<table class="table">-->
+                    <!--<thead>-->
+                    <!--<tr>-->
+                      <!--<th>镜像名称</th>-->
+                      <!--<th>操作系统</th>-->
+                      <!--<th>类型</th>-->
+                      <!--<th>创建时间</th>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                    <!--<tr>-->
+                      <!--<td>centos 6.x 64</td>-->
+                      <!--<td>centos 6.x 64</td>-->
+                      <!--<td>通用镜像</td>-->
+                      <!--<td>xxx.xxx.xxx</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                      <!--<td>centos 6.x 64</td>-->
+                      <!--<td>centos 6.x 64</td>-->
+                      <!--<td>通用镜像</td>-->
+                      <!--<td>xxx.xxx.xxx</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                      <!--<td>centos 6.x 64</td>-->
+                      <!--<td>centos 6.x 64</td>-->
+                      <!--<td>通用镜像</td>-->
+                      <!--<td>xxx.xxx.xxx</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                      <!--<td>centos 6.x 64</td>-->
+                      <!--<td>centos 6.x 64</td>-->
+                      <!--<td>通用镜像</td>-->
+                      <!--<td>xxx.xxx.xxx</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                      <!--<td>centos 6.x 64</td>-->
+                      <!--<td>centos 6.x 64</td>-->
+                      <!--<td>通用镜像</td>-->
+                      <!--<td>xxx.xxx.xxx</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                      <!--<td>debian 6.x 64</td>-->
+                      <!--<td>debian 6.x 64</td>-->
+                      <!--<td>通用镜像</td>-->
+                      <!--<td>xxx.xxx.xxx</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                      <!--<td>ubuntu 6.x 64</td>-->
+                      <!--<td>ubuntu 6.x 64</td>-->
+                      <!--<td>通用镜像</td>-->
+                      <!--<td>xxx.xxx.xxx</td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                  <!--</table>-->
 
-                  <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Prev</a>
-                    </li>
-                    <li class="page-item active">
-                      <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">4</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a>
-                    </li>
-                  </ul>
+                  <!--<ul class="pagination">-->
+                    <!--<li class="page-item"><a class="page-link" href="#">Prev</a>-->
+                    <!--</li>-->
+                    <!--<li class="page-item active">-->
+                      <!--<a class="page-link" href="#">1</a>-->
+                    <!--</li>-->
+                    <!--<li class="page-item"><a class="page-link" href="#">2</a>-->
+                    <!--</li>-->
+                    <!--<li class="page-item"><a class="page-link" href="#">3</a>-->
+                    <!--</li>-->
+                    <!--<li class="page-item"><a class="page-link" href="#">4</a>-->
+                    <!--</li>-->
+                    <!--<li class="page-item"><a class="page-link" href="#">Next</a>-->
+                    <!--</li>-->
+                  <!--</ul>-->
                 </div>
                 <div class="tab-pane" id="profile" role="tabpanel" aria-expanded="false">
                   <table class="table">

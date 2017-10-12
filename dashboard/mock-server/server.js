@@ -40,6 +40,159 @@ app.get('/getDashboardInfo',function(req,res){
   res.json(res);
 });
 
+app.get('/dashboard/clustercentre/clustermng/listclusters',function(req,res){
+  var result =
+    [{
+      "Cluster_Id":1,
+      "Cluster_Name":"test",
+      "Config_Name":"test2",
+      "Flavor":1,
+      "Storage":32,
+      "Replicas":2,
+      "Create_At":"2017-09-27T11:09:08Z",
+      "Valid":true
+    },
+    {
+      "Cluster_Id":2,
+      "Cluster_Name":"testcluster3",
+      "Config_Name":"test2",
+      "Flavor":2,
+      "Storage":32,
+      "Replicas":8,
+      "Create_At":"2017-09-27T13:49:42Z",
+      "Valid":true
+    }];
+  res.json(result);
+});
+
+app.get('/dashboard/imagecentre/myimages/newimage/basicimages',function(req,res){
+  var result =
+    [{
+      "Cluster_Id":1,
+      "Cluster_Name":"test",
+      "Config_Name":"test2",
+      "Flavor":1,
+      "Storage":32,
+      "Replicas":2,
+      "Create_At":"2017-09-27T11:09:08Z",
+      "Valid":true
+    },
+      {
+        "Cluster_Id":2,
+        "Cluster_Name":"testcluster3",
+        "Config_Name":"test2",
+        "Flavor":2,
+        "Storage":32,
+        "Replicas":8,
+        "Create_At":"2017-09-27T13:49:42Z",
+        "Valid":true
+      }];
+
+  res.json(result);
+});
+
+app.get('/dashboard/imagecentre/myimages/listimages',function(req,res){
+  var result =
+    [{
+      "Cluster_Id":1,
+      "Cluster_Name":"test",
+      "Config_Name":"test2",
+      "Flavor":1,
+      "Storage":32,
+      "Replicas":2,
+      "Create_At":"2017-09-27T11:09:08Z",
+      "Valid":true
+    },
+      {
+        "Cluster_Id":2,
+        "Cluster_Name":"testcluster3",
+        "Config_Name":"test2",
+        "Flavor":2,
+        "Storage":32,
+        "Replicas":8,
+        "Create_At":"2017-09-27T13:49:42Z",
+        "Valid":true
+      }];
+
+  res.json(result);
+});
+
+app.get('/dashboard/clustercentre/configmng/listconfigs',function(req,res){
+  var result =
+    [{
+      "Row_ID":1,
+      "User_ID":1,
+      "Tenant_ID":1,
+      "Config_Name":"test2",
+      "Config_Des":"testconfig2",
+      "Create_At":"2017-09-27T11:09:04Z",
+      "Create_By":"testuser",
+      "Modified_At":"2017-09-27T13:08:26Z",
+      "Modified_By":"test",
+      "Valid":true
+    },
+      {
+        "Row_ID":2,
+        "User_ID":1,
+        "Tenant_ID":1,
+        "Config_Name":"test2",
+        "Config_Des":"testconfig2",
+        "Create_At":"2017-09-27T11:09:04Z",
+        "Create_By":"testuser",
+        "Modified_At":"2017-09-27T13:08:26Z",
+        "Modified_By":"test",
+        "Valid":true
+      }];
+
+  res.json(result);
+});
+
+app.post('/getBalance',function(req,res){
+  var result = {
+    "loadbalanceInfoOut":[
+      {"name":"Ib1","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib2","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib3","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib4","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib5","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib6","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib7","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib8","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib9","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+    ],
+    "loadbalanceInfoIn":[
+      {"name":"Ib1","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib2","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib3","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib4","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib5","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib6","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib7","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib8","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+      {"name":"Ib9","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
+        "createTime":"2017.x.x"},
+    ],
+  }
+  res.json(result);
+});
+
 
 app.get('/api/flows/:id',function(req,res){
   this.tabItems = [
@@ -4790,8 +4943,8 @@ app.put('/api/:storeId/bankCard/:accountNumber/check/manual/:result', function (
 //登录
 app.post('/dashboard/usercentre/login',function(req, res){
   var result = {
-      "code": 0,  
-      "detail": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDc4ODY2MTksIm5hbWUiOiJ6aGFuZ3lvbmdfbmV3IiwidXNlcl9pZCI6MX0.bOr8EL8gZJ3Wqa_PLnvfuG-U5CHoCTWaDcFwgDLk1eU" 
+      "code": 0,
+      "detail": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDc4ODY2MTksIm5hbWUiOiJ6aGFuZ3lvbmdfbmV3IiwidXNlcl9pZCI6MX0.bOr8EL8gZJ3Wqa_PLnvfuG-U5CHoCTWaDcFwgDLk1eU"
   }
   res.json(result);
 })
@@ -4799,7 +4952,7 @@ app.post('/dashboard/usercentre/login',function(req, res){
 //登出
 app.post('/dashboard/usercentre/logout',function(req, res){
   var result = {
-    "code": 0,  
+    "code": 0,
     "detail": "logout success"
   }
   res.json(result);
@@ -4808,8 +4961,8 @@ app.post('/dashboard/usercentre/logout',function(req, res){
 //创建新镜像
 app.post('/dashboard/imagecentre/myimages/newimage/build',function(req, res){
   var result = {
-    "code": 0,  
-    "detail": "build image started" 
+    "code": 0,
+    "detail": "build image started"
   }
   res.json(result);
 })
