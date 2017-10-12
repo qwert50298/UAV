@@ -44,21 +44,21 @@ export class LoadBalanceComponent implements OnInit {
         console.log('loadbalanceInfo get');
         console.log(error); }
     );
-    this.activeRoute.params.subscribe(
-        params => this.getUsersByPage(params['page'])
-    );
+    //this.activeRoute.params.subscribe(
+    //    params => this.getUsersByPage(params['page'])
+    //);
   }
   public getUsersByPage(page: Number): void {
     console.log('页码>' + page);
   }
 
-  public pageChanged(event): void {
-    this.router.navigateByUrl('/workspace/components/cluster-center/load-balance/page/' + event.page);
-  }
-
-  public newUser(): void {
-    this.router.navigateByUrl('/workspace/components/cluster-center/load-balance/newuser');
-  }
+  //public pageChanged(event): void {
+  //  this.router.navigateByUrl('/workspace/components/cluster-center/load-balance/page/' + event.page);
+  //}
+  //
+  //public newUser(): void {
+  //  this.router.navigateByUrl('/workspace/components/cluster-center/load-balance/newuser');
+  //}
 
   //public blockUser(userId: Number): void {
   //  console.log(userId);
