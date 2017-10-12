@@ -482,6 +482,7 @@ export class SysMonitorComponent implements OnInit {
 
     this.sysMonitorService.getTradeOrderInfo({}).subscribe(
         res => {
+          console.log(res);
         this.hasLine7Chart = true;
         this.hasBar8Chart = true;
         this.hasLine9Chart = true;
@@ -893,10 +894,10 @@ export class SysMonitorComponent implements OnInit {
         name: total[3].percent + " " + total[3].value,
         value: total[3].value
       }, {
-        name: total[2].percent + " " + total[4].value,
+        name: total[2].percent + " " + total[2].value,
         value: total[2].value
       }, {
-        name: total[1].percent + " " + total[4].value,
+        name: total[1].percent + " " + total[1].value,
         value: total[1].value
       }, {
         name: total[0].percent + " " + total[0].value,
@@ -991,10 +992,10 @@ export class SysMonitorComponent implements OnInit {
         name: order[3].percent + " " + order[3].value,
         value: order[3].value
       }, {
-        name: order[2].percent + " " + order[4].value,
+        name: order[2].percent + " " + order[2].value,
         value: order[2].value
       }, {
-        name: order[1].percent + " " + order[4].value,
+        name: order[1].percent + " " + order[1].value,
         value: order[1].value
       }, {
         name: order[0].percent + " " + order[0].value,
