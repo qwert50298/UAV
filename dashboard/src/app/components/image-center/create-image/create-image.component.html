@@ -36,7 +36,7 @@
                     <div class="form-group row">
                       <label class="col-md-3 form-control-label" for="text-input">镜像描述</label>
                       <div class="col-md-9">
-                        <input type="text" name="image_description" class="form-control" placeholder="image description">
+                        <input type="text" name="image_description" class="form-control" placeholder="image description" formControlName="image_description">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -54,7 +54,7 @@
                     <div class="form-group row">
                       <label class="col-md-3 form-control-label" for="file-input">上传已编译好的应用</label>
                       <div class="col-md-9">
-                        <input style="display:block" type="file" name="app_filename" (change)="fileChange($event)" requireFile formControlName="app_filename">
+                        <input style="display:block" type="file" name="app_filename" requireFile formControlName="app_filename">
                         <small class="txt-error animated fadeIn" *ngIf="formErrors['app_filename']">{{formErrors['app_filename']}}</small>
                       </div>
                     </div>

@@ -14,13 +14,6 @@ import * as $ from 'jquery';
 export class CreateImageComponent implements OnInit {
   creatImgForm: FormGroup;
 
-  imageName:string;
-  imageDescription:string;
-  basicImage:string;
-  storePath:string;
-  appFile: File;
-  appFilename: string;
-
   formErrors = {
     'image_name':'',
     'basic_image':'',
@@ -52,6 +45,7 @@ export class CreateImageComponent implements OnInit {
   ngOnInit() {
    this.creatImgForm = this.fb.group({
      'image_name':['',Validators.required],
+     'image_description':[''],
      'basic_image':['',Validators.required],
      'store_path':['',Validators.required],
      'app_filename':['',FileValidator.validate],
@@ -65,11 +59,11 @@ export class CreateImageComponent implements OnInit {
       return;
     }
     let formData = new FormData();
-    formData.append("image_name",this.imageName);
-    formData.append("image_description",this.imageDescription);
-    formData.append("basic_image",this.basicImage);
-    formData.append("store_path",this.storePath);
-    formData.append("app_filename",this.appFile);
+    formData.append("image_name",form.value.image_name);
+    formData.append("image_description",form.value.image_description);
+    formData.append("basic_image",form.value.basic_image);
+    formData.append("store_path",form.value.store_path);
+    formData.append("app_filename",form.value.app_filename);
 
     this.createImageService.createImg(formData).subscribe((res: any) =>{
       if(res.code === 0){
@@ -80,15 +74,6 @@ export class CreateImageComponent implements OnInit {
     });
   }
 
-  fileChange(e){
-    let fileList: FileList = e.target.files;
-    this.appFile = fileList[0];
-    this.creatImgForm.controls['app_filename'].updateValueAndValidity();
-  }
-
-  fileValidator(){
-
-  }
   onValueChanges(){
     for(const filed in this.formErrors){
       this.formErrors[filed] = '';
