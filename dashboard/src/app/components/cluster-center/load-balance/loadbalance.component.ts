@@ -13,7 +13,6 @@ class SearchParam{
   }
 }
 
-
 @Component({
   selector: 'app-loadbalance',
   templateUrl: './loadbalance.component.html',
@@ -26,19 +25,23 @@ export class LoadBalanceComponent implements OnInit {
 
   public searchParam:SearchParam;
   public totalSize:Number;
+  public searchParam2:SearchParam;
+  public totalSize2:Number;
 
   constructor(public loadBalanceService: LoadBalanceService,
               public router: Router,
               public activeRoute: ActivatedRoute) {
       this.searchParam = new SearchParam();
+      this.searchParam2 = new SearchParam();
   }
 
   ngOnInit() {
     this.loadBalanceService.getInfo({}).subscribe(
         res => {
-        this.loadbalanceListOut = res.loadbalanceInfoOut;
+          this.loadbalanceListOut = res.loadbalanceInfoOut;
           this.totalSize = this.loadbalanceListOut.length;
-        this.loadbalanceListIn = res.loadbalanceInfoIn;
+          this.loadbalanceListIn = res.loadbalanceInfoIn;
+          this.totalSize2 = this.loadbalanceListIn.length;
       },
         error => {
         console.log('loadbalanceInfo get');
@@ -48,32 +51,22 @@ export class LoadBalanceComponent implements OnInit {
     //    params => this.getUsersByPage(params['page'])
     //);
   }
-  public getUsersByPage(page: Number): void {
-    console.log('页码>' + page);
-  }
+  //public getUsersByPage(page: Number): void {
+  //  console.log('页码>' + page);
+  //}
 
   //public pageChanged(event): void {
   //  this.router.navigateByUrl('/workspace/components/cluster-center/load-balance/page/' + event.page);
   //}
   //
-  //public newUser(): void {
-  //  this.router.navigateByUrl('/workspace/components/cluster-center/load-balance/newuser');
-  //}
-
-  //public blockUser(userId: Number): void {
-  //  console.log(userId);
-  //}
-  //
-  //public unBlockUser(userId: Number): void {
-  //  console.log(userId);
-  //}
-  //
-  //public resetPwd(userId: Number): void {
-  //  console.log(userId);
-  //}
 
   gotoPage(pagingInfo){
     this.searchParam.pageNo = pagingInfo.currentPage;
+    //this.queryData();
+  }
+
+  gotoPage2(pagingInfo){
+    this.searchParam2.pageNo = pagingInfo.currentPage;
     //this.queryData();
   }
 

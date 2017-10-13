@@ -1,8 +1,5 @@
 <div class="app flex-row align-items-center">
-
-
   <div class="app-body">
-
 
     <!-- Main content -->
     <main class="main">
@@ -12,7 +9,6 @@
         <li class="breadcrumb-item">集群中心</li>
         <li class="breadcrumb-item active">负载均衡</li>
       </ol>
-
 
       <div class="container-fluid">
 
@@ -93,19 +89,6 @@
                   </table>
 
                   <ul class="pagination">
-                    <!--<li class="page-item"><a class="page-link" href="#">Prev</a>-->
-                    <!--</li>-->
-                    <!--<li class="page-item active">-->
-                      <!--<a class="page-link" href="#">1</a>-->
-                    <!--</li>-->
-                    <!--<li class="page-item"><a class="page-link" href="#">2</a>-->
-                    <!--</li>-->
-                    <!--<li class="page-item"><a class="page-link" href="#">3</a>-->
-                    <!--</li>-->
-                    <!--<li class="page-item"><a class="page-link" href="#">4</a>-->
-                    <!--</li>-->
-                    <!--<li class="page-item"><a class="page-link" href="#">Next</a>-->
-                    <!--</li>-->
                     <paging (goPage)="gotoPage($event)"
                                inputCurrentPage="{{searchParam.pageNo}}"
                                countPerPage="{{searchParam.pageSize}}" totalCount="{{totalSize}}"></paging>
@@ -174,21 +157,11 @@
                     </tbody>
                   </table>
 
-                  <!--<ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Prev</a>
-                    </li>
-                    <li class="page-item active">
-                      <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">4</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a>
-                    </li>
-                  </ul>-->
+                  <ul class="pagination">
+                    <paging (goPage)="gotoPage($event)"
+                            inputCurrentPage="{{searchParam2.pageNo}}"
+                            countPerPage="{{searchParam2.pageSize}}" totalCount="{{totalSize2}}"></paging>
+                  </ul>
                 </div>
               </div>
 
