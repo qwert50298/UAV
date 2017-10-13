@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild, AfterViewInit, Inject} from '@angular/core
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {CreateImageService} from './create-image.service';
 import {FileValidator} from '../../../shared/fileValidator.directive'; 
+import { FormValidatorService } from '../../../shared/formValidator.service'; 
 import {Router} from '@angular/router';
 import * as $ from 'jquery';
 
@@ -12,34 +13,16 @@ import * as $ from 'jquery';
   providers: [CreateImageService]
 })
 export class CreateImageComponent implements OnInit {
+  
   creatImgForm: FormGroup;
-
-  formErrors = {
-    'image_name':'',
-    'basic_image':'',
-    'store_path':'',
-    'app_filename':'',
-  }
-
-  validationMessages = {
-    'image_name':{
-      'required':'镜像名不能为空',
-    },
-    'basic_image':{
-      'required':'请选择一个基础镜像',
-    },
-    'store_path':{
-      'required':'请指定应用存放路径',
-    },
-    'app_filename':{
-      'required':'请上传已编译好的应用文件',
-    }
-  }
+  formErrors: any;
 
   constructor(private createImageService: CreateImageService, 
     private router: Router,
     @Inject('help') private helpService,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private fvalidatorService: FormValidatorService) {
+      this.formErrors = fvalidatorService.formErrors;
   }
 
   ngOnInit() {
@@ -47,10 +30,10 @@ export class CreateImageComponent implements OnInit {
      'image_name':['',Validators.required],
      'image_description':[''],
      'basic_image':['',Validators.required],
-     'store_path':['',Validators.required],
+     'store_path':[''],
      'app_filename':['',FileValidator.validate],
    });
-   this.creatImgForm.valueChanges.subscribe(() => this.onValueChanges());
+   this.creatImgForm.valueChanges.subscribe(() => this.fvalidatorService.onValueChanges(this.creatImgForm));
   }
 
   //提交表单，构建新镜像
@@ -72,18 +55,5 @@ export class CreateImageComponent implements OnInit {
         alert("构建新镜像失败");
       }
     });
-  }
-
-  onValueChanges(){
-    for(const filed in this.formErrors){
-      this.formErrors[filed] = '';
-      const control = this.creatImgForm.get(filed);
-      if(control && control.dirty && !control.valid){
-        const message = this.validationMessages[filed];
-        for(const key in control.errors){
-          this.formErrors[filed] += message[key] + ' ';
-        }
-      }
-    }
   }
 }

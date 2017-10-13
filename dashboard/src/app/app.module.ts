@@ -6,6 +6,7 @@ import { RootRouterModule } from './app.router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HelpService } from './shared/help.service';
 import { LoginService } from './pages/service/login.service';
+import { FormValidatorService } from './shared/formValidator.service';
 import { AuthHttp, AuthConfig, AUTH_PROVIDERS, provideAuth } from 'angular2-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTableModule } from 'primeng/components/datatable/datatable';
@@ -114,7 +115,8 @@ import { LoginComponent } from './pages/login.component';
     provide:'help',
     useClass:HelpService
   },LoginService,
-    AuthHttp],
+    AuthHttp,
+    FormValidatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
+import { FormValidatorService } from '../../../shared/formValidator.service'; 
 import { CreateConfigService } from './create-config.service';
 
 @Component({
@@ -10,13 +12,32 @@ import { CreateConfigService } from './create-config.service';
 })
 export class CreateConfigComponent implements OnInit {
 
-  constructor(@Inject('help') private helpService, private createConfigService: CreateConfigService, private router: Router) { }
+  configForm: FormGroup;
+  formErrors: any;
+
+  constructor(@Inject('help') private helpService, 
+    private createConfigService: CreateConfigService, 
+    private router: Router,
+    private fb: FormBuilder,
+    private fValidatorService: FormValidatorService) { 
+      this.formErrors = this.fValidatorService.formErrors;
+    }
 
   ngOnInit() {
-
+    this.configForm = this.fb.group({
+      'configname':['',Validators.required],
+      'configdescription':[''],
+      'envvariable':['',Validators.required],
+      'configfile':['',Validators.required],
+      'configData':[''],
+    })
+    this.configForm.valueChanges.subscribe(() => this.fValidatorService.onValueChanges(this.configForm));
   }
 
   onSubmit(config){
+    if(config.inValid){
+      return;
+    }
     let data = config.value;
     this.createConfigService.addconfig(data).subscribe((res: any) => {
       if(res.code === 0){
