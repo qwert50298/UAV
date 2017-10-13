@@ -24,7 +24,7 @@ export class DeployNewClusterComponent implements OnInit {
 
   ngOnInit() {
     this.clusterForm = this.fb.group({
-      'clustername':['', Validators.required],
+      'clustername':['', [Validators.required,Validators.maxLength(50),Validators.pattern('[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*')]],
       'clusterdescription':[''],
       'imageid':['', Validators.required],
       'configid':['', Validators.required],

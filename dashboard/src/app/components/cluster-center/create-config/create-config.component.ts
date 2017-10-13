@@ -25,7 +25,7 @@ export class CreateConfigComponent implements OnInit {
 
   ngOnInit() {
     this.configForm = this.fb.group({
-      'configname':['',Validators.required],
+      'configname':['',[Validators.required,Validators.maxLength(50),Validators.pattern('[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*')]],
       'configdescription':[''],
       'envvariable':['',Validators.required],
       'configfile':['',Validators.required],

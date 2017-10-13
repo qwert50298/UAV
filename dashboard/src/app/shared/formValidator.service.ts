@@ -36,6 +36,8 @@ export class FormValidatorService {
         //创建新集群
         'clustername':{
             'required':'集群名称不能为空',
+            'maxlength':'集群名称最多为50个字符',
+            'pattern':'集群名称由小写字母、数字字符、“-”和“.”组成,并且不能以符合开头和结尾'
         },
         'imageid':{
             'required':'请选择一个镜像',
@@ -55,6 +57,8 @@ export class FormValidatorService {
         //创建新配置
         'configname':{
             'required':'配置名称不能为空',
+            'maxlength':'配置名称最多为50个字符',
+            'pattern':'配置名称由小写字母、数字字符、“-”和“.”组成,并且不能以符合开头和结尾'
         },
         'envvariable':{
             'required':'请输入系统环境变量',
