@@ -29,24 +29,24 @@
             <div class="col-md-12">
               <div class="card card-block">
 
-                <p-dataTable  class="table" [value]="clusterList"  [rows]="3" [paginator]="true" [pageLinks]="3"   dataKey="name">
-                  <p-column field="Cluster_Name" header="集群名称" ></p-column>
-                  <p-column field="Config_Name" header="配置信息"  ></p-column>
-                  <p-column field="Flavor" header="集群规格"></p-column>
-                  <p-column field="Replicas" header="实例数量" ></p-column>
-                  <p-column field="Valid" header="状态" ></p-column>
-                  <p-column field="" header="负载均衡" ></p-column>
-                  <p-column field="Create_At" header="创建时间" ></p-column>
-                  <p-column field="button" header="操作">
-                    <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
-                      <span>Dribbble</span>
-                    </button>
-                    <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
-                      <span>Dribbble</span>
-                    </button>
-                  </p-column>
-                </p-dataTable>
-                <!-- <table class="table">
+                <!--<p-dataTable  class="table" [value]="clusterList"  [rows]="3" [paginator]="true" [pageLinks]="3"   dataKey="name">-->
+                  <!--<p-column field="Cluster_Name" header="集群名称" ></p-column>-->
+                  <!--<p-column field="Config_Name" header="配置信息"  ></p-column>-->
+                  <!--<p-column field="Flavor" header="集群规格"></p-column>-->
+                  <!--<p-column field="Replicas" header="实例数量" ></p-column>-->
+                  <!--<p-column field="Valid" header="状态" ></p-column>-->
+                  <!--<p-column field="" header="负载均衡" ></p-column>-->
+                  <!--<p-column field="Create_At" header="创建时间" ></p-column>-->
+                  <!--<p-column field="button" header="操作">-->
+                    <!--<button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">-->
+                      <!--<span>Dribbble</span>-->
+                    <!--</button>-->
+                    <!--<button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">-->
+                      <!--<span>Dribbble</span>-->
+                    <!--</button>-->
+                  <!--</p-column>-->
+                <!--</p-dataTable>-->
+                 <table class="table">
                    <thead>
                    <tr>
                      <th>集群名称</th>
@@ -60,31 +60,14 @@
                    </tr>
                    </thead>
                    <tbody>
-                   &lt;!&ndash;<tr>
-                     <td>app 10</td>
-                     <td>config A</td>
-                     <td>1c2g</td>
-                     <td>4</td>
-                     <td>running</td>
-                     <td>外部: xxx.xxx.xxx.xxx <br>内部: xxx.domain.local</td>
-                     <td>2017.x.x</td>
-                     <td>
-                       <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
-                         <span>Dribbble</span>
-                       </button>
-                       <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
-                         <span>Dribbble</span>
-                       </button>
-                     </td>
-                   </tr>&ndash;&gt;
                    <tr *ngFor="let post of clusterList">
-                     <td>{{post.name}}</td>
-                     <td>{{post.info}}</td>
-                     <td>{{post.size}}</td>
-                     <td>{{post.number}}</td>
-                     <td>{{post.state}}</td>
-                     <td>{{post.loadbalanceout}}<br>{{post.loadbalancein}}</td>
-                     <td>{{post.createTime}}</td>
+                     <td>{{post.Cluster_Name}}</td>
+                     <td>{{post.Config_Name}}</td>
+                     <td>{{post.Flavor}}</td>
+                     <td>{{post.Replicas}}</td>
+                     <td>{{post.Valid}}</td>
+                     <td></td>
+                     <td>{{post.Create_At}}</td>
                      <td>
                        <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
                          <span>Dribbble</span>
@@ -96,23 +79,13 @@
                    </tr>
 
                    </tbody>
-                 </table>-->
+                 </table>
 
-                <!--<ul class="pagination">
-                  <li class="page-item"><a class="page-link" href="#">Prev</a>
-                  </li>
-                  <li class="page-item active">
-                    <a class="page-link" href="#">1</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">2</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">4</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">Next</a>
-                  </li>
-                </ul>-->
+                <ul class="pagination">
+                  <paging (goPage)="gotoPage($event)"
+                          inputCurrentPage="{{searchParam.pageNo}}"
+                          countPerPage="{{searchParam.pageSize}}" totalCount="{{totalSize}}"></paging>
+                </ul>
               </div>
             </div>
           </div>

@@ -44,7 +44,6 @@ export class LoadBalanceComponent implements OnInit {
           this.totalSize2 = this.loadbalanceListIn.length;
       },
         error => {
-        console.log('loadbalanceInfo get');
         console.log(error); }
     );
     //this.activeRoute.params.subscribe(

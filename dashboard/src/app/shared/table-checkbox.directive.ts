@@ -2,7 +2,7 @@ import {Directive, OnInit, HostListener, NgZone, Output, EventEmitter} from '@an
 declare var $: any;
 /**
  * Allows the aside to be toggled via click.
- * Author by jianfeng liu
+ * Author by liangzhifeng
  */
 @Directive({
   selector: '[appTableCheckbox]',

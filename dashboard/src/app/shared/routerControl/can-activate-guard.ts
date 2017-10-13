@@ -1,5 +1,5 @@
 /**
- * Created by liujf on 2017/5/27.
+ * Created by liangzhifeng on 2017/5/27.
  */
 import {Injectable} from '@angular/core';
 import {CanActivate} from '@angular/router';
