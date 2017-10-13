@@ -2,6 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { LoadBalanceService } from './loadbalance.service';
 import { DataTableModule } from 'primeng/primeng';
 import { ActivatedRoute, Router } from '@angular/router';
+
+class SearchParam{
+  public pageNo:Number;
+  public pageSize:Number;
+
+  constructor(){
+    this.pageNo = 1;
+    this.pageSize = 10;
+  }
+}
+
 @Component({
   selector: 'app-loadbalance',
   templateUrl: './loadbalance.component.html',
@@ -12,57 +23,51 @@ export class LoadBalanceComponent implements OnInit {
   public loadbalanceListOut: Array<any>;
   public loadbalanceListIn: Array<any>;
 
+  public searchParam:SearchParam;
+  public totalSize:Number;
+  public searchParam2:SearchParam;
+  public totalSize2:Number;
+
   constructor(public loadBalanceService: LoadBalanceService,
               public router: Router,
               public activeRoute: ActivatedRoute) {
+      this.searchParam = new SearchParam();
+      this.searchParam2 = new SearchParam();
   }
 
   ngOnInit() {
     this.loadBalanceService.getInfo({}).subscribe(
         res => {
-        this.loadbalanceListOut = res.loadbalanceInfoOut;
-
-        /* 负载均衡名称	所属集群	dns	协议	端口	状态	创建时间	操作*/
-        /*this.loadbalanceListOut =[
-         {"name":"Ib1","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
-         "createTime":"2017.x.x"},
-         {"name":"Ib2","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
-         "createTime":"2017.x.x"},
-         {"name":"Ib3","balance":"app1","dns":"xxx.xxx.xxx.xxx","protocol":"tcp","port":"50","state":"running" ,
-         "createTime":"2017.x.x"},
-         ];*/
-        this.loadbalanceListIn = res.loadbalanceInfoIn;
+          this.loadbalanceListOut = res.loadbalanceInfoOut;
+          this.totalSize = this.loadbalanceListOut.length;
+          this.loadbalanceListIn = res.loadbalanceInfoIn;
+          this.totalSize2 = this.loadbalanceListIn.length;
       },
         error => {
         console.log('loadbalanceInfo get');
         console.log(error); }
     );
-    this.activeRoute.params.subscribe(
-        params => this.getUsersByPage(params['page'])
-    );
+    //this.activeRoute.params.subscribe(
+    //    params => this.getUsersByPage(params['page'])
+    //);
   }
-  public getUsersByPage(page: Number): void {
-    console.log('页码>' + page);
+  //public getUsersByPage(page: Number): void {
+  //  console.log('页码>' + page);
+  //}
+
+  //public pageChanged(event): void {
+  //  this.router.navigateByUrl('/workspace/components/cluster-center/load-balance/page/' + event.page);
+  //}
+  //
+
+  gotoPage(pagingInfo){
+    this.searchParam.pageNo = pagingInfo.currentPage;
+    //this.queryData();
   }
 
-  public pageChanged(event): void {
-    this.router.navigateByUrl('/workspace/components/cluster-center/load-balance/page/' + event.page);
-  }
-
-  public newUser(): void {
-    this.router.navigateByUrl('/workspace/components/cluster-center/load-balance/newuser');
-  }
-
-  public blockUser(userId: Number): void {
-    console.log(userId);
-  }
-
-  public unBlockUser(userId: Number): void {
-    console.log(userId);
-  }
-
-  public resetPwd(userId: Number): void {
-    console.log(userId);
+  gotoPage2(pagingInfo){
+    this.searchParam2.pageNo = pagingInfo.currentPage;
+    //this.queryData();
   }
 
 }

@@ -55,6 +55,8 @@ import { DeployNewClusterComponent } from './components/cluster-center/deploy-ne
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './pages/login.component';
 
+import { PagingComponent } from './common/paging/paging.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,8 +85,10 @@ import { LoginComponent } from './pages/login.component';
     LoadBalanceComponent,
     CreateImageComponent,
     CreateConfigComponent,
-    DeployNewClusterComponent
+    DeployNewClusterComponent,
+    PagingComponent
   ],
+  exports: [PagingComponent],
   imports: [
     BrowserModule,
     FormsModule,
