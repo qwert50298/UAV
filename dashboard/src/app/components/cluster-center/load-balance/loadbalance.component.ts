@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadBalanceService } from './loadbalance.service';
-import { DataTableModule } from 'primeng/primeng';
+//import { DataTableModule } from 'primeng/primeng';
 import { ActivatedRoute, Router } from '@angular/router';
 
 class SearchParam{

@@ -9,8 +9,8 @@ import { LoginService } from './pages/service/login.service';
 import { FormValidatorService } from './shared/formValidator.service';
 import { AuthHttp, AuthConfig, AUTH_PROVIDERS, provideAuth } from 'angular2-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DataTableModule } from 'primeng/components/datatable/datatable';
-import { InputTextModule, ButtonModule } from 'primeng/primeng';
+//import { DataTableModule } from 'primeng/components/datatable/datatable';
+//import { InputTextModule, ButtonModule } from 'primeng/primeng';
 
 // import { PagesModule }  from './pages/pages.module';
 import { NAV_DROPDOWN_DIRECTIVES } from './shared/nav-dropdown.directive';
@@ -37,13 +37,9 @@ import { MaskComponent } from './shared/mask/mask.component';
 //pipe
 import { SelectContactPipe } from './shared/pipe/select-contact.pipe';
 import { FormatPhonePipe } from './shared/pipe/format-phone.pipe';
-
-
-import { MyImageComponent } from './components/image-center/my-image/my-image.component';
-import { CreateImageComponent } from './components/image-center/create-image/create-image.component';
 import { AlertComponent } from './shared/alert/alert.component';
-
 import { CanActivateGuard } from './shared/routerControl/can-activate-guard';
+
 import { BaseImageComponent } from './components/image-center/base-image/base-image.component';
 import { ConfigManagerComponent } from './components/cluster-center/config-manager/config-manager.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -51,12 +47,15 @@ import { MyClusterComponent } from './components/cluster-center/my-cluster/my-cl
 import { LoadBalanceComponent } from './components/cluster-center/load-balance/loadbalance.component';
 import { CreateConfigComponent } from './components/cluster-center/create-config/create-config.component';
 import { DeployNewClusterComponent } from './components/cluster-center/deploy-new-cluster/deploy-new-cluster.component';
+import { QueryConfigComponent } from './components/cluster-center/query-config/query-config.component';
+import { MyImageComponent } from './components/image-center/my-image/my-image.component';
+import { CreateImageComponent } from './components/image-center/create-image/create-image.component';
+
 
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './pages/login.component';
 
 import { PagingComponent } from './common/paging/paging.component';
-import { QueryConfigComponent } from './components/cluster-center/query-config/query-config.component';
 
 @NgModule({
   declarations: [
@@ -109,10 +108,7 @@ import { QueryConfigComponent } from './components/cluster-center/query-config/q
     AlertModule.forRoot(),
     TabsModule.forRoot(),
     AccordionModule.forRoot(),
-    PaginationModule.forRoot(),
-    InputTextModule,
-    ButtonModule,
-    DataTableModule
+    PaginationModule.forRoot()
   ],
   providers: [{
     provide: LocationStrategy,

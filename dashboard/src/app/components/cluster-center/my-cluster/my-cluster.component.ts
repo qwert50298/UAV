@@ -1,6 +1,6 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { ClusterService } from './my-cluster.service';
-import { DataTableModule } from 'primeng/primeng';
+//import { DataTableModule } from 'primeng/primeng';
 import { ActivatedRoute, Router } from '@angular/router';
 
 class SearchParam{
