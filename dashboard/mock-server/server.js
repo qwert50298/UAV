@@ -5080,6 +5080,32 @@ app.get('/dashboard/clustercentre/configmng/queryconfig',function(req, res){
     res.json(result);
 })
 
+//查询集群
+app.get('/dashboard/clustercentre/clustermng/querycluster', function(req, res){
+  var result = {
+    "App_ID":2,
+    "App_Name":"testcluster3",
+    "App_Des":"testcluster3",
+    "User_ID":1,
+    "Tenant_ID":1,
+    "ENV_ID":1,
+    "Image_ID":1,
+    "Image_Name":"test",
+    "Image_Url":"/",
+    "Config_ID":1,
+    "Flavor":2,
+    "Storage":32,
+    "Persistent":true,
+    "Replicas":8,
+    "CMD":"/",
+    "Create_At":"2017-09-27T13:49:42Z",
+    "Create_By":"test",
+    "Modified_At":"2017-09-27T13:49:42Z",
+    "Modified_By":"test",
+    "Valid":true    
+  }
+  res.json(result);
+})
 app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;

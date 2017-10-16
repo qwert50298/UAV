@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { QueryConfigService } from './query-config.service';
-import { QueryConfig } from './model/query-config';
 
 @Component({
   selector: 'app-query-config',
@@ -11,11 +10,10 @@ import { QueryConfig } from './model/query-config';
 })
 export class QueryConfigComponent implements OnInit {
 
-  configDetail: QueryConfig; 
+  configDetail: any; 
   
   constructor(private queryConfigService: QueryConfigService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router) {
+    private activatedRoute: ActivatedRoute) {
     }
 
   ngOnInit() {
