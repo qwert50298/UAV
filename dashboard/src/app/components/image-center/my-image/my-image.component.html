@@ -56,12 +56,12 @@
                   </thead>
                   <tbody>
                   <tr *ngFor="let post of list">
-                    <td>{{post.Cluster_Name}}</td>
-                    <td>{{post.Config_Name}}</td>
-                    <td>{{post.Config_Name}}</td>
-                    <td>{{post.Create_At}}</td>
+                    <td>{{post.name}}</td>
+                    <td>{{post.buildnumber}}</td>
+                    <td>{{post.buildstatus}}</td>
+                    <td>{{post.createdat}}</td>
                     <td>
-                      <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
+                      <button type="button" [routerLink]="['/content/queryImage',post.id]" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
                         <span>Dribbble</span>
                       </button>
                       <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">

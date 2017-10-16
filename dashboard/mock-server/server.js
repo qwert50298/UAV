@@ -93,27 +93,25 @@ app.get('/dashboard/imagecentre/myimages/newimage/basicimages',function(req,res)
 
 app.get('/dashboard/imagecentre/myimages/listimages',function(req,res){
   var result =
-    [{
-      "Cluster_Id":1,
-      "Cluster_Name":"test",
-      "Config_Name":"test2",
-      "Flavor":1,
-      "Storage":32,
-      "Replicas":2,
-      "Create_At":"2017-09-27T11:09:08Z",
-      "Valid":true
-    },
-      {
-        "Cluster_Id":2,
-        "Cluster_Name":"testcluster3",
-        "Config_Name":"test2",
-        "Flavor":2,
-        "Storage":32,
-        "Replicas":8,
-        "Create_At":"2017-09-27T13:49:42Z",
-        "Valid":true
-      }];
-
+  [
+    {
+        "id": 13,
+        "tenantid": 1,
+        "name": "android_push_beta",
+        "description": "android push service test image",
+        "tag": "20170914.023946",
+        "buildfrom": "alpine:3.5",
+        "uploadfile": "/home/sean/temp/android_push.tar",
+        "storepath": "/",
+        "jobname": "1_android_push_beta_20170914.023946",
+        "buildnumber": 1,
+        "buildstatus": "BUILDING",
+        "deployed": 0,
+        "createdby": "TenantName",
+        "createdat": "2017-09-14T02:39:48.881485759-04:00",
+        "deleted": 0
+    }
+  ]   
   res.json(result);
 });
 
@@ -5104,6 +5102,28 @@ app.get('/dashboard/clustercentre/clustermng/querycluster', function(req, res){
     "Modified_By":"test",
     "Valid":true    
   }
+  res.json(result);
+})
+
+//查询镜像
+app.get('/dashboard/imagecentre/myimages/status', function(req, res){
+  var result = {
+    "id": 13,
+    "tenantid": 1,
+    "name": "android_push_beta",
+    "description": "android push service test image",
+    "tag": "20170914.023946",
+    "buildfrom": "alpine:3.5",
+    "uploadfile": "/home/sean/temp/android_push.tar",
+    "storepath": "/",
+    "jobname": "1_android_push_beta_20170914.023946",
+    "buildnumber": 1,
+    "buildstatus": "BUILDING",
+    "deployed": 0,
+    "createdby": "TenantName",
+    "createdat": "2017-09-14T02:39:48.881485759-04:00",
+    "deleted": 0
+  };
   res.json(result);
 })
 app.use(function (req, res, next) {
