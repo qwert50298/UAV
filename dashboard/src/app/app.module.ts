@@ -38,9 +38,6 @@ import { MaskComponent } from './shared/mask/mask.component';
 import { SelectContactPipe } from './shared/pipe/select-contact.pipe';
 import { FormatPhonePipe } from './shared/pipe/format-phone.pipe';
 
-
-import { MyImageComponent } from './components/image-center/my-image/my-image.component';
-import { CreateImageComponent } from './components/image-center/create-image/create-image.component';
 import { AlertComponent } from './shared/alert/alert.component';
 
 import { CanActivateGuard } from './shared/routerControl/can-activate-guard';
@@ -51,12 +48,15 @@ import { MyClusterComponent } from './components/cluster-center/my-cluster/my-cl
 import { LoadBalanceComponent } from './components/cluster-center/load-balance/loadbalance.component';
 import { CreateConfigComponent } from './components/cluster-center/create-config/create-config.component';
 import { DeployNewClusterComponent } from './components/cluster-center/deploy-new-cluster/deploy-new-cluster.component';
+import { QueryConfigComponent } from './components/cluster-center/query-config/query-config.component';
+import { MyImageComponent } from './components/image-center/my-image/my-image.component';
+import { CreateImageComponent } from './components/image-center/create-image/create-image.component';
+
 
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './pages/login.component';
 
 import { PagingComponent } from './common/paging/paging.component';
-import { QueryConfigComponent } from './components/cluster-center/query-config/query-config.component';
 
 @NgModule({
   declarations: [
