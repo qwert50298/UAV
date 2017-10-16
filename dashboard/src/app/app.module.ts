@@ -37,10 +37,9 @@ import { MaskComponent } from './shared/mask/mask.component';
 //pipe
 import { SelectContactPipe } from './shared/pipe/select-contact.pipe';
 import { FormatPhonePipe } from './shared/pipe/format-phone.pipe';
-
 import { AlertComponent } from './shared/alert/alert.component';
-
 import { CanActivateGuard } from './shared/routerControl/can-activate-guard';
+
 import { BaseImageComponent } from './components/image-center/base-image/base-image.component';
 import { ConfigManagerComponent } from './components/cluster-center/config-manager/config-manager.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
