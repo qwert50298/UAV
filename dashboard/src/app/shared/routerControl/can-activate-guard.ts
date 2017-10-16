@@ -11,11 +11,13 @@ export class CanActivateGuard implements  CanActivate{
   constructor(private router: Router, private loginService: LoginService){}
 
   canActivate(){
-    if (this.loginService.loggedIn()){
-      return true;
-    }else{
-      this.router.navigateByUrl('/login');
-      return false;
-    }
+    return true;
+    // if (this.loginService.loggedIn()){
+    //   return true;
+    // }else{
+    //   this.router.navigateByUrl('/login');
+    //   console.log('token验证失败');
+    //   return false;
+    // }
   }
 }

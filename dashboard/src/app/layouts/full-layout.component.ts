@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LayoutService} from './service/layout.service';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-layout',
   templateUrl: './full-layout.component.html',
   providers: [LayoutService]
 })

@@ -11,6 +11,7 @@ import { LoadBalanceComponent } from './components/cluster-center/load-balance/l
 import { MyClusterComponent } from './components/cluster-center/my-cluster/my-cluster.component';
 import { CreateConfigComponent } from './components/cluster-center/create-config/create-config.component';
 import { DeployNewClusterComponent } from './components/cluster-center/deploy-new-cluster/deploy-new-cluster.component';
+import { QueryConfigComponent } from './components/cluster-center/query-config/query-config.component';
 
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './pages/login.component';
@@ -48,8 +49,7 @@ const rootRouterConfig: Routes = [
         path: 'createImage', //我的镜像-- 创建新镜像
         component: CreateImageComponent,
         canActivate: [CanActivateGuard],
-      }
-      ,
+      },
       {
         path: 'baseImage', //基础镜像
         component: BaseImageComponent,
@@ -63,6 +63,11 @@ const rootRouterConfig: Routes = [
       {
         path: 'createConfig',  //配置管理--创建新配置
         component: CreateConfigComponent,
+        canActivate: [CanActivateGuard],
+      },
+      {
+        path: 'queryConfig/:id', //配置管理--查询配置
+        component: QueryConfigComponent,
         canActivate: [CanActivateGuard],
       },
       {

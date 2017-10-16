@@ -54,7 +54,7 @@
                     <td>{{post.Config_Des}}</td>
                     <td>{{post.Create_At}}</td>
                     <td>
-                      <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
+                      <button type="button" [routerLink]="['/content/queryConfig',post.Row_ID]" [queryParams]="{name:post.Config_Name,des:post.Config_Des}" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">
                         <span>Dribbble</span>
                       </button>
                       <button type="button" class="btn btn-sm btn-dribbble icon" style="margin-bottom: 4px">

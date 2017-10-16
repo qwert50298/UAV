@@ -5056,6 +5056,30 @@ app.post('/dashboard/clustercentre/configmng/newconfig/addconfig',function(req, 
   }
   res.json(result);
 })
+
+//查询配置
+app.get('/dashboard/clustercentre/configmng/queryconfig',function(req, res){
+  var result = {
+    "configfiles": [
+      {
+      "Config_File": "/conf/app.conf",
+      "Config_Data": "appname = dashboardservice\\nhttpport = 8089"
+      }
+    ],
+    "envlist": [
+      {
+      "ENV_Key": "JAVA_HOME",
+      "ENV_Val": "/Java/jdk1.8.0_60"
+      },
+      {
+      "ENV_Key": "CLASSPATH",
+      "ENV_Val": "%/JAVA_HOME%/lib"
+      }
+    ]
+    }
+    res.json(result);
+})
+
 app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;

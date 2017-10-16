@@ -56,6 +56,7 @@ import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './pages/login.component';
 
 import { PagingComponent } from './common/paging/paging.component';
+import { QueryConfigComponent } from './components/cluster-center/query-config/query-config.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { PagingComponent } from './common/paging/paging.component';
     CreateImageComponent,
     CreateConfigComponent,
     DeployNewClusterComponent,
-    PagingComponent
+    PagingComponent,
+    QueryConfigComponent
   ],
   exports: [PagingComponent],
   imports: [
