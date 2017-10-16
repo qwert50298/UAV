@@ -19,12 +19,19 @@ export class QueryConfigComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.configDetail = {
+      'id':'',
+      'name':'',
+      'des':'',
+      'envlist':'',
+      'configfiles':''
+    }
+    this.configDetail.name = this.activatedRoute.snapshot.queryParams.name;
+    this.configDetail.des = this.activatedRoute.snapshot.queryParams.des;
     this.activatedRoute.params.subscribe(params => {
-      let that = this;
       this.queryConfigService.queryconfig(params['id']).subscribe((res: any) => {
-        that.configDetail.id = params['id'];
-        that.configDetail.name = params['name'];
-        that.configDetail.des = params['des'];
+        this.configDetail.envlist = JSON.stringify(res.envlist);
+        this.configDetail.configfiles = JSON.stringify(res.configfiles);
       })
     })
     
