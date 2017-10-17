@@ -71,14 +71,15 @@ import { PagingComponent } from './common/paging/paging.component';
     ComfirmModelComponent,
     ThreeLinkComponent,
     MaskComponent,
-    MyImageComponent,
     AlertComponent,
 
     SelectContactPipe,
     FormatPhonePipe,
     IndexComponent,
     LoginComponent,
+
     DashboardComponent,
+    MyImageComponent,
     BaseImageComponent,
     ConfigManagerComponent,
     MyClusterComponent,
