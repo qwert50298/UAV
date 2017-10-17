@@ -29,7 +29,6 @@ export class CreateConfigComponent implements OnInit {
       'configdescription':[''],
       'envvariable':['',Validators.required],
       'configfile':['',Validators.required],
-      'configData':[''],
     })
     this.configForm.valueChanges.subscribe(() => this.fValidatorService.onValueChanges(this.configForm));
   }

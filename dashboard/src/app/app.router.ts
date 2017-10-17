@@ -12,6 +12,8 @@ import { MyClusterComponent } from './components/cluster-center/my-cluster/my-cl
 import { CreateConfigComponent } from './components/cluster-center/create-config/create-config.component';
 import { DeployNewClusterComponent } from './components/cluster-center/deploy-new-cluster/deploy-new-cluster.component';
 import { QueryConfigComponent } from './components/cluster-center/query-config/query-config.component';
+import { QueryClusterComponent } from './components/cluster-center/query-cluster/query-cluster.component';
+import { QueryImageComponent } from './components/image-center/query-image/query-image.component';
 
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './pages/login.component';
@@ -51,6 +53,11 @@ const rootRouterConfig: Routes = [
         canActivate: [CanActivateGuard],
       },
       {
+        path: 'queryImage/:id', //我的镜像--查询镜像
+        component: QueryImageComponent,
+        canActivate: [CanActivateGuard]
+      },
+      {
         path: 'baseImage', //基础镜像
         component: BaseImageComponent,
         canActivate: [CanActivateGuard],
@@ -80,7 +87,11 @@ const rootRouterConfig: Routes = [
         component: DeployNewClusterComponent,
         canActivate: [CanActivateGuard],
       },
-
+      {
+        path: 'queryCluster/:id', //我的集群--查询集群
+        component: QueryClusterComponent,
+        canActivate: [CanActivateGuard],
+      },
       {
         path: 'loadBalance', //负载均衡
         component: LoadBalanceComponent,

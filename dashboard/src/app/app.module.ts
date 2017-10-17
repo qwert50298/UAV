@@ -9,10 +9,7 @@ import { LoginService } from './pages/service/login.service';
 import { FormValidatorService } from './shared/formValidator.service';
 import { AuthHttp, AuthConfig, AUTH_PROVIDERS, provideAuth } from 'angular2-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { DataTableModule } from 'primeng/components/datatable/datatable';
-//import { InputTextModule, ButtonModule } from 'primeng/primeng';
 
-// import { PagesModule }  from './pages/pages.module';
 import { NAV_DROPDOWN_DIRECTIVES } from './shared/nav-dropdown.directive';
 import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/sidebar.directive';
 import { AsideToggleDirective } from './shared/aside.directive';
@@ -21,14 +18,16 @@ import { TableCheckboxDirectice } from './shared/table-checkbox.directive';
 import { FileValueAccessor } from './shared/fileValueAccessor.directive';
 import { FileValidator } from './shared/fileValidator.directive';
 import { DatepickerModule } from 'ngx-bootstrap/datepicker';
-import { CalendarModule, AutoCompleteModule,DialogModule} from 'primeng/primeng';
+
+//ngx-bootstrap
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { AppComponent} from './app.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+
+import { AppComponent} from './app.component';
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { ComfirmModelComponent } from './shared/modal/confirm-model/confirm-model.component';
 import { ThreeLinkComponent } from './shared/three-link/three-link.component';
@@ -50,12 +49,12 @@ import { DeployNewClusterComponent } from './components/cluster-center/deploy-ne
 import { QueryConfigComponent } from './components/cluster-center/query-config/query-config.component';
 import { MyImageComponent } from './components/image-center/my-image/my-image.component';
 import { CreateImageComponent } from './components/image-center/create-image/create-image.component';
-
-
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './pages/login.component';
-
 import { PagingComponent } from './common/paging/paging.component';
+import { QueryClusterComponent } from './components/cluster-center/query-cluster/query-cluster.component';
+import { QueryImageComponent } from './components/image-center/query-image/query-image.component';
+
 
 @NgModule({
   declarations: [
@@ -88,7 +87,9 @@ import { PagingComponent } from './common/paging/paging.component';
     CreateConfigComponent,
     DeployNewClusterComponent,
     PagingComponent,
-    QueryConfigComponent
+    QueryConfigComponent,
+    QueryClusterComponent,
+    QueryImageComponent
   ],
   exports: [PagingComponent],
   imports: [
@@ -97,11 +98,6 @@ import { PagingComponent } from './common/paging/paging.component';
     ReactiveFormsModule,
     HttpModule,
     RootRouterModule,
-    // NKDatetimeModule,
-    // PagesModule,
-    CalendarModule,
-    AutoCompleteModule,
-    DialogModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     ModalModule.forRoot(),
@@ -109,7 +105,7 @@ import { PagingComponent } from './common/paging/paging.component';
     AlertModule.forRoot(),
     TabsModule.forRoot(),
     AccordionModule.forRoot(),
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
   ],
   providers: [{
     provide: LocationStrategy,

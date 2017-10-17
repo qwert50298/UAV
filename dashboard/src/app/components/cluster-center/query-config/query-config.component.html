@@ -22,25 +22,25 @@
                       <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="text-input">配置名称</label>
                         <div class="col-md-9">
-                          <input type="text" name="configname" class="form-control" placeholder="配置名" [disabled]="true">
+                          <input type="text" name="configname" class="form-control" placeholder="配置名" readonly [(ngModel)]="configDetail.name">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="text-input">配置描述</label>
                         <div class="col-md-9">
-                          <input type="text" name="configdescription" class="form-control" placeholder="config description" [disabled]="true">
+                          <input type="text" name="configdescription" class="form-control" placeholder="config description" readonly [(ngModel)]="configDetail.des">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="text-input">系统环境变量</label>
                         <div class="col-md-9">
-                              <input type="text" name="envvariable" class="form-control" placeholder="key = value" [disabled]="true">
+                            <textarea  name="envvariable" rows="6" class="form-control" placeholder="key = value" readonly [(ngModel)]="configDetail.envlist"></textarea>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label class="col-md-3 form-control-label" for="text-input">配置文件</label>
                         <div class="col-md-9">
-                              <input type="text" name="configfile" class="form-control" placeholder="file name and its absolute path" [disabled]="true">
+                            <textarea  name="configfile" rows="6" class="form-control" placeholder="file name and its absolute path" readonly [(ngModel)]="configDetail.configfiles"></textarea>
                         </div>
                       </div>
                     </form>
