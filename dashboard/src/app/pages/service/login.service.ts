@@ -18,7 +18,7 @@ export class LoginService {
     return this.http.post(AppUtils.BACKEND_API_ROOT_URL + '/dashboard/usercentre/login', JSON.stringify(loginRequest)).map((res: Response) => {
         return res.json();
     }).catch((error: Response) => {
-        alert(error.json().detail);
+        alert('服务器出错');
         return Observable.throw('登录失败');
     });
   }
