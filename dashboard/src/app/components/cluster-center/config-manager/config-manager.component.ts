@@ -42,4 +42,17 @@ export class ConfigManagerComponent implements OnInit {
     this.searchParam.pageNo = pagingInfo.currentPage;
     //this.queryData();
   }
+
+  //删除配置
+  delConfig(id){
+    this.configManagerService.deleteConfig(id).subscribe((res: any) => {
+      if(res.code === 0){
+        this.list = this.list.filter(function(val){
+          return (val.Row_ID !== id)
+        })
+      }else{
+        alert('删除配置失败')
+      }
+    })
+  }
 }

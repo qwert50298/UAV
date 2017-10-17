@@ -42,13 +42,6 @@ export class MyClusterComponent implements OnInit {
     );
   }
 
-  //public getUsersByPage(page: Number): void {
-  //  console.log('页码>' + page);
-  //}
-  //
-  //public pageChanged(event): void {
-  //  this.router.navigateByUrl('/workspace/components/cluster-center/my-cluster/page/' + event.page);
-  //}
   gotoPage(pagingInfo){
     this.searchParam.pageNo = pagingInfo.currentPage;
   }

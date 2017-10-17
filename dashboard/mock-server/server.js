@@ -238,6 +238,16 @@ app.get('/dashboard/imagecentre/myimages/status', function(req, res){
   };
   res.json(result);
 })
+
+//删除配置
+app.get('/dashboard/clustercentre/configmng/deleteconfig', function(req, res){
+  var result = {
+    "code": 0,    
+    "detail": "delete config success"   
+  }
+  res.json(result);
+})
+
 app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;

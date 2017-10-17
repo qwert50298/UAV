@@ -19,5 +19,5 @@ export class ClusterService {
         return Observable.throw('获取集群列表失败')
       })
   }
-
+  
 }
