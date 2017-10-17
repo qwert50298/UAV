@@ -1,6 +1,5 @@
 import { Routes, RouterModule }  from '@angular/router';
 import { FullLayoutComponent } from './layouts/full-layout.component';
-
 import { MyImageComponent } from './components/image-center/my-image/my-image.component';
 import { CreateImageComponent } from './components/image-center/create-image/create-image.component';
 import { CanActivateGuard } from './shared/routerControl/can-activate-guard';
@@ -14,9 +13,9 @@ import { DeployNewClusterComponent } from './components/cluster-center/deploy-ne
 import { QueryConfigComponent } from './components/cluster-center/query-config/query-config.component';
 import { QueryClusterComponent } from './components/cluster-center/query-cluster/query-cluster.component';
 import { QueryImageComponent } from './components/image-center/query-image/query-image.component';
-
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './pages/login.component';
+import { EditConfigComponent } from './components/cluster-center/edit-config/edit-config.component';
 
 const rootRouterConfig: Routes = [
 
@@ -76,6 +75,11 @@ const rootRouterConfig: Routes = [
         path: 'queryConfig/:id', //配置管理--查询配置
         component: QueryConfigComponent,
         canActivate: [CanActivateGuard],
+      },
+      {
+        path: 'editConfig/:id', //配置管理--修改配置
+        component: EditConfigComponent,
+        canActivate: [CanActivateGuard]
       },
       {
         path: 'myCluster',  //我的集群

@@ -57,7 +57,7 @@
                       <button type="button" [routerLink]="['/content/queryConfig',post.Row_ID]" [queryParams]="{name:post.Config_Name,des:post.Config_Des}" class="btn btn-sm btn-fa" title="查看">
                         <i class="fa fa-search"></i>
                       </button>
-                      <button type="button" class="btn btn-sm btn-fa" title="修改">
+                      <button type="button" [routerLink]="['/content/editConfig',post.Row_ID]" [queryParams]="{name:post.Config_Name,des:post.Config_Des}" class="btn btn-sm btn-fa" title="修改">
                         <i class="fa fa-edit"></i>
                       </button>
                       <button type="button" class="btn btn-sm btn-fa" title="删除" (click)="delConfig(post.Row_ID)">

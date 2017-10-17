@@ -54,6 +54,7 @@ import { LoginComponent } from './pages/login.component';
 import { PagingComponent } from './common/paging/paging.component';
 import { QueryClusterComponent } from './components/cluster-center/query-cluster/query-cluster.component';
 import { QueryImageComponent } from './components/image-center/query-image/query-image.component';
+import { EditConfigComponent } from './components/cluster-center/edit-config/edit-config.component';
 
 
 @NgModule({
@@ -89,7 +90,8 @@ import { QueryImageComponent } from './components/image-center/query-image/query
     PagingComponent,
     QueryConfigComponent,
     QueryClusterComponent,
-    QueryImageComponent
+    QueryImageComponent,
+    EditConfigComponent
   ],
   exports: [PagingComponent],
   imports: [
