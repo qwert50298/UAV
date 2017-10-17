@@ -70,14 +70,15 @@ import { QueryImageComponent } from './components/image-center/query-image/query
     ComfirmModelComponent,
     ThreeLinkComponent,
     MaskComponent,
-    MyImageComponent,
     AlertComponent,
 
     SelectContactPipe,
     FormatPhonePipe,
     IndexComponent,
     LoginComponent,
+
     DashboardComponent,
+    MyImageComponent,
     BaseImageComponent,
     ConfigManagerComponent,
     MyClusterComponent,
