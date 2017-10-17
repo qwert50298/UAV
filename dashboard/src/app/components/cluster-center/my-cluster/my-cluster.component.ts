@@ -40,9 +40,6 @@ export class MyClusterComponent implements OnInit {
         error => {
         console.log(error); }
     );
-    //this.activeRoute.params.subscribe(
-    //    params => this.getUsersByPage(params['page'])
-    //);
   }
 
   //public getUsersByPage(page: Number): void {
@@ -54,7 +51,6 @@ export class MyClusterComponent implements OnInit {
   //}
   gotoPage(pagingInfo){
     this.searchParam.pageNo = pagingInfo.currentPage;
-    //this.queryData();
   }
 
 }

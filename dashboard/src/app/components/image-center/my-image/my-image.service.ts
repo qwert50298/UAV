@@ -8,12 +8,13 @@ import * as Const from '../../../config/const';
 
 @Injectable()
 export class MyImageService {
-
-  constructor(private http: Http) { }
-
+  token: string;
+  constructor(private http: Http) {
+    this.token = localStorage.getItem('token');
+  }
   public getInfo(json: any):Observable<any>{
 
-    return this.http.get(Const.BACKEND_API_ROOT_URL + '/dashboard/imagecentre/myimages/listimages',{})
+    return this.http.get(Const.BACKEND_API_ROOT_URL + '/dashboard/imagecentre/myimages/listimages?token='+this.token)
       .map((res: Response) => {
         return res.json();
       });
