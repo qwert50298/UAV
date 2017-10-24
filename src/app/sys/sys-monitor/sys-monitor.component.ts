@@ -104,6 +104,7 @@ export class SysMonitorComponent implements OnInit {
           this.userQty4 = userQty[3];
         let activeUser = serveData.activeUser;
         let RegisteredUser = serveData.RegisteredUser;
+          let AllRegisteredUser = serveData.AllRegisteredUser;
         this.p1Chart = {
           textStyle: {
             color: 'rgba(255, 255, 255, 0.3)'
@@ -500,7 +501,8 @@ export class SysMonitorComponent implements OnInit {
         RegisteredUser.forEach(function(item){
           var date = _self.sysMonitorService.monthInEn(item.date);
           line6Xdata.push(date);
-        })
+        });
+
         this.line6Chart = {
           title: {
             text: '',
@@ -545,6 +547,22 @@ export class SysMonitorComponent implements OnInit {
               itemStyle:{
                 normal:{
                   color:'#99ff00'
+                }
+              },
+              symbol: 'none'
+            },
+            {
+              name: 'AllRegistered',
+              type: 'line',
+              data: AllRegisteredUser,
+              lineStyle:{
+                normal:{
+                  color:'#ffd153'
+                }
+              },
+              itemStyle:{
+                normal:{
+                  color:'#ffd153'
                 }
               },
               symbol: 'none'
