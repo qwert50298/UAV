@@ -15,6 +15,7 @@ export class SysMonitorComponent implements OnInit {
   public p1Chart = {};
   public p2Chart = {};
   public p3Chart = {};
+  public p4Chart = {};
   public pie4Chart = {};
   public line5Chart = {};
   public line6Chart = {};
@@ -26,6 +27,7 @@ export class SysMonitorComponent implements OnInit {
   public hasP1Chart: boolean;
   public hasP2Chart: boolean;
   public hasP3Chart: boolean;
+  public hasP4Chart: boolean;
   public hasPie4Chart: boolean;
   public hasLine5Chart: boolean;
   public hasLine6Chart:boolean;
@@ -41,6 +43,7 @@ export class SysMonitorComponent implements OnInit {
   public userQty1:number;
   public userQty2:number;
   public userQty3:number;
+  public userQty4:number;
 
   public tradeToday:String;
   public orderToday:String;
@@ -56,6 +59,7 @@ export class SysMonitorComponent implements OnInit {
     this.hasP1Chart = false;
     this.hasP2Chart = false;
     this.hasP3Chart = false;
+    this.hasP4Chart = false;
     this.hasPie4Chart = false;
     this.hasLine5Chart = false;
     this.hasLine6Chart = false;
@@ -63,7 +67,6 @@ export class SysMonitorComponent implements OnInit {
     this.hasBar8Chart = false;
     this.hasLine9Chart = false;
     this.hasBar10Chart = false;
-
 
     //let param = {
     //  company_account: 'test2017',
@@ -76,17 +79,7 @@ export class SysMonitorComponent implements OnInit {
     setInterval(function () {
       _this.refresh();
     }, 1000 * 60 * 60);
-    // this.sysMonitorService.login(param).subscribe(
-    //     res => {
-    //     _this.refresh();
-    //     setInterval(function () {
-    //       _this.refresh();
-    //     }, 1000 * 60 * 60);
-    //   },
-    //     error => {
-    //     console.log(error);
-    //   }
-    // );
+
   }
 
   refresh()
@@ -98,6 +91,7 @@ export class SysMonitorComponent implements OnInit {
         this.hasP1Chart = true;
         this.hasP2Chart = true;
         this.hasP3Chart = true;
+          this.hasP4Chart = true;
         this.hasPie4Chart = true;
         this.hasLine5Chart = true;
         this.hasLine6Chart = true;
@@ -107,6 +101,7 @@ export class SysMonitorComponent implements OnInit {
         this.userQty1 = userQty[0];
         this.userQty2 = userQty[1];
         this.userQty3 = userQty[2];
+          this.userQty4 = userQty[3];
         let activeUser = serveData.activeUser;
         let RegisteredUser = serveData.RegisteredUser;
         this.p1Chart = {
@@ -303,7 +298,7 @@ export class SysMonitorComponent implements OnInit {
               data: [
                 {
                   value: userQty[2],
-                  name: 'Registered User',
+                  name: 'Valid User',
                   tooltip: {
                     trigger: 'item',
                     position: [10, 10],
@@ -326,7 +321,7 @@ export class SysMonitorComponent implements OnInit {
                 },
                 {
                   value: 0,
-                  name: 'Other User',
+                  name: 'InValid User',
                   label: {
                     normal: {
                       show: false
@@ -357,6 +352,90 @@ export class SysMonitorComponent implements OnInit {
             }
           ]
         };
+
+          this.p4Chart = {
+            textStyle: {
+              color: 'rgba(255, 255, 255, 0.3)'
+            },
+            labelLine: {
+              normal: {
+                lineStyle: {
+                  color: 'rgba(0,0 ,0 ,0 )'
+                }
+              }
+            },
+            tooltip: {
+              trigger: 'item',
+              position: [10, 10],
+              formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+              orient: 'vertical',
+              left: 'left',
+            },
+            series: [
+              {
+                name: 'User',
+                type: 'pie',
+                radius: '50%',
+                center: ['23%', '55%'],
+                data: [
+                  {
+                    value: userQty[3],
+                    name: 'Subscriber User',
+                    tooltip: {
+                      trigger: 'item',
+                      position: [10, 10],
+                      formatter: "{b} : {c} ({d}%)"
+                    },
+                    label: {
+                      normal: {
+                        show: false
+                      }
+                    },
+                    selected: true,
+                    itemStyle: {
+                      normal: {
+                        // 设置扇形的颜色
+                        color: ['#3398DB'],
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                      }
+                    }
+                  },
+                  {
+                    value: 0,
+                    name: 'Other User',
+                    label: {
+                      normal: {
+                        show: false
+                      }
+                    },
+                    tooltip: {
+                      position: [20, 10],
+                      trigger: 'item',
+                      formatter: "{b} : {c} ({d}%)"
+                    },
+                    itemStyle: {
+                      normal: {
+                        // 设置扇形的颜色
+                        color: ['#696969'],
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                      }
+                    }
+                  }
+                ],
+                itemStyle: {
+                  emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                  }
+                }
+              }
+            ]
+          };
         let location = res.retbody.getUserInfo.location;
         this.setPie4Chart(location);
 
