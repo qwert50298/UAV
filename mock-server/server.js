@@ -103,7 +103,22 @@ app.post('/admin/dashboard/getUserInfo',function(req,res){
         {data: 'Jan9', value: 50},
         {data: 'Jan10', value: 11},
         {data: 'Jan11', value: 21},
-        {data: 'Jan12', value: 51},
+        {data: 'Jan12', value: 51}
+      ],
+    "AllRegisteredUser":
+      [
+        {data: 'Jan1', value: 14},
+        {data: 'Jan2', value: 55},
+        {data: 'Jan3', value: 19},
+        {data: 'Jan4', value: 17},
+        {data: 'Jan5', value: 21},
+        {data: 'Jan6', value: 39},
+        {data: 'Jan7', value: 3},
+        {data: 'Jan8', value: 14},
+        {data: 'Jan9', value: 50},
+        {data: 'Jan10', value: 11},
+        {data: 'Jan11', value: 21},
+        {data: 'Jan12', value: 51}
       ]
 
 
