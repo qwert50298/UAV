@@ -16,9 +16,20 @@ app.use('/*', function (req, res, next) {
   next();
 })
 
-app.post('/admin/dashboard/getUserInfo',function(req,res){
-  var result;
-  result = {
+//登录
+app.post('/reg/employee/login',function(req, res){
+  var result = {
+    "code": 0,
+    "detail": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDg0NzMzNzcsIm5hbWUiOiJ6aGFuZ3lvbmdfbmV3IiwidXNlcl9pZCI6MX0.1dc_hmifgwd0kDMdZXiPbO82wlbCwSHBj7dv07mz-xk"
+  }
+  res.json(result);
+})
+
+
+app.post('/wholesale_dashboard/getUserInfo',function(req,res){
+  var result = {};
+  result.retbody = {};
+  result.retbody.getUserInfo = {
     "location":
       [
         {name: '拉萨', value: 24},
@@ -67,7 +78,7 @@ app.post('/admin/dashboard/getUserInfo',function(req,res){
         {data: 'Jan9', value: 50},
         {data: 'Jan10', value: 51},
         {data: 'Jan11', value: 51},
-        {data: 'Jan12', value: 80},
+        {data: 'Jan12', value: 80}
         /*{data: 'Jan7', value: 52},
          {data: 'Jan7', value: 54},
          {data: 'Jan7', value: 57},
@@ -103,8 +114,23 @@ app.post('/admin/dashboard/getUserInfo',function(req,res){
         {data: 'Jan9', value: 50},
         {data: 'Jan10', value: 11},
         {data: 'Jan11', value: 21},
-        {data: 'Jan12', value: 51},
+        {data: 'Jan12', value: 51}
       ],
+    "AllRegisteredUser":
+      [
+        {data: 'Jan1', value: 14},
+        {data: 'Jan2', value: 55},
+        {data: 'Jan3', value: 19},
+        {data: 'Jan4', value: 17},
+        {data: 'Jan5', value: 21},
+        {data: 'Jan6', value: 39},
+        {data: 'Jan7', value: 3},
+        {data: 'Jan8', value: 14},
+        {data: 'Jan9', value: 50},
+        {data: 'Jan10', value: 11},
+        {data: 'Jan11', value: 21},
+        {data: 'Jan12', value: 51}
+      ]
 
 
 
@@ -114,9 +140,10 @@ app.post('/admin/dashboard/getUserInfo',function(req,res){
   res.json(result);
 });
 
-app.post('/admin/dashboard/getTradeOrderInfo',function(req,res){
-  var result;
-  result = {
+app.post('/wholesale_dashboard/getTradeOrderInfo',function(req,res){
+  var result = {};
+  result.retbody = {};
+  result.retbody.getTradeOrderInfo = {
     "trade": {
       "tradeToday": '43,505',
       "tradeNums": [
@@ -227,11 +254,10 @@ app.post('/admin/dashboard/getTradeOrderInfo',function(req,res){
               {name:'Company4', percent:'12%', value:67},
               {name:'Company5', percent:'2%', value:52}
             ]
-          },
+          }
 
-        ],
-    },
-
+        ]
+    }
 
 
   }
@@ -241,8 +267,10 @@ app.post('/admin/dashboard/getTradeOrderInfo',function(req,res){
 });
 
 
-app.post('/admin/dashboard/getPlatformInfo',function(req,res){
-  var result = {
+app.post('/wholesale_dashboard/getPlatformInfo',function(req,res){
+  var result = {};
+  result.retbody = {};
+  result.retbody.getTradeOrderInfo = {
     "host": {
       "cur": 140,
       "total": 200,
@@ -283,177 +311,6 @@ app.post('/admin/dashboard/getPlatformInfo',function(req,res){
 
   res.json(result);
 });
-
-
-
-//app.post('/admin/dashboard/getUserInfo',function(req,res){
-//  var result = {
-//    "map":
-//      [
-//        {name: '拉萨', value: 24},
-//        {name: '上海', value: 25},
-//        {name: '福州', value: 29},
-//        {name: '南宁', value: 37},
-//        {name: '广州', value: 38},
-//        {name: '太原', value: 39},
-//        {name: '昆明', value: 39},
-//        {name: '海口', value: 44},
-//        {name: '沈阳', value: 50},
-//        {name: '长春', value: 51},
-//        {name: '银川', value: 52},
-//        {name: '南昌', value: 54},
-//        {name: '西宁', value: 57},
-//        {name: '呼和浩特', value: 58},
-//        {name: '成都', value: 58},
-//        {name: '西安', value: 61},
-//        {name: '重庆', value: 66},
-//        {name: '南京', value: 67},
-//        {name: '贵阳', value: 71},
-//        {name: '北京', value: 79},
-//        {name: '乌鲁木齐', value: 84},
-//        {name: '杭州', value: 84},
-//        {name: '济南', value: 92},
-//        {name: '兰州', value: 99},
-//        {name: '天津', value: 105},
-//        {name: '郑州', value: 113},
-//        {name: '哈尔滨', value: 114},
-//        {name: '石家庄', value: 147},
-//        {name: '长沙', value: 175},
-//        {name: '合肥', value: 229},
-//        {name: '武汉', value: 273}
-//      ],
-//    "users": {
-//      "onlineUser": 805,
-//      "downlineUser": 1200,
-//      "activeUser": 3205,
-//      "unactiveUser": 2300,
-//      "registerUser": 1143500
-//    },
-//    "AcUser":
-//      [
-//        {data: 'Jan1', value: 24},
-//        {data: 'Jan2', value: 25},
-//        {data: 'Jan3', value: 29},
-//        {data: 'Jan4', value: 37},
-//        {data: 'Jan5', value: 38},
-//        {data: 'Jan6', value: 39},
-//        {data: 'Jan7', value: 39},
-//        {data: 'Jan8', value: 44},
-//        {data: 'Jan9', value: 50},
-//        {data: 'Jan10', value: 51},
-//        {data: 'Jan11', value: 51},
-//        {data: 'Jan12', value: 51},
-//        /*{data: 'Jan7', value: 52},
-//         {data: 'Jan7', value: 54},
-//         {data: 'Jan7', value: 57},
-//         {data: 'Jan7', value: 58},
-//         {data: 'Jan7', value: 58},
-//         {data: 'Jan7', value: 61},
-//         {data: 'Jan7', value: 66},
-//         {data: 'Jan7', value: 67},
-//         {data: 'Jan7', value: 71},
-//         {data: 'Jan7', value: 79},
-//         {data: 'Jan7', value: 84},
-//         {data: 'Jan7', value: 84},
-//         {data: 'Jan7', value: 92},
-//         {data: 'Jan7', value: 99},
-//         {data: 'Jan7', value: 105},
-//         {data: 'Jan7', value: 113},
-//         {data: 'Jan7', value: 114},
-//         {data: 'Jan7', value: 147},
-//         {data: 'Jan7', value: 175},
-//         {data: 'Jan7', value: 229},*/
-//
-//      ],
-//    "ReUser":
-//      [
-//        {data: 'Jan1', value: 14},
-//        {data: 'Jan2', value: 25},
-//        {data: 'Jan3', value: 19},
-//        {data: 'Jan4', value: 37},
-//        {data: 'Jan5', value: 38},
-//        {data: 'Jan6', value: 459},
-//        {data: 'Jan7', value: 439},
-//        {data: 'Jan8', value: 114},
-//        {data: 'Jan9', value: 650},
-//        {data: 'Jan10', value: 311},
-//        {data: 'Jan11', value: 321},
-//        {data: 'Jan12', value: 251},
-//
-//      ],
-//    "trade": {
-//      "tradeToday": '43,505',
-//      "tradeNums": [
-//        {data: 'Jan1', value: 114},
-//        {data: 'Jan2', value: 125},
-//        {data: 'Jan3', value: 119},
-//        {data: 'Jan4', value: 37},
-//        {data: 'Jan5', value: 38},
-//        {data: 'Jan6', value: 59},
-//        {data: 'Jan7', value: 39},
-//        {data: 'Jan8', value: 14},
-//        {data: 'Jan9', value: 50},
-//        {data: 'Jan10', value: 11},
-//        {data: 'Jan11', value: 21},
-//        {data: 'Jan12', value: 51},
-//      ],
-//    },
-//    "tradeTop":
-//    {
-//      total:'123400000',
-//      t1name:'CompanyXX',
-//      t1percent:'32%',
-//      t1value:'123,000,000',
-//      t2name:'CompanyXX',
-//      t2percent:'32%',
-//      t2value:'123,000,000',
-//      t3name:'CompanyXX',
-//      t3percent:'32%',
-//      t3value:'123,000,000',
-//      t4name:'CompanyXX',
-//      t4percent:'32%',
-//      t4value:'123,000,000',
-//      t5name:'CompanyXX',
-//      t5percent:'32%',
-//      t5value:'123,000,000'
-//
-//    },
-//
-//
-//  }
-//
-//
-//  res.json(result);
-//});
-//
-//
-//app.post('/getPlatform',function(req,res){
-//  var result = {
-//    "host": {
-//      "cur": 140,
-//      "total": 200,
-//      "percent":"70%"
-//    },
-//    "cpu": {
-//      "cur": 4,
-//      "total": 8,
-//      "percent":"50%"
-//    },
-//    "memory": {
-//      "cur": 23000,
-//      "total": 100000,
-//      "percent":"23%"
-//    },
-//    'pageVisit': "230,500",
-//     "dataVolumn":"63,500,500"
-//
-//  }
-//
-//
-//  res.json(result);
-//});
-//
-
 
 app.use(function (req, res, next) {
   var err = new Error('Not Found');

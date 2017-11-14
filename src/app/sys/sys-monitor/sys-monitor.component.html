@@ -21,16 +21,24 @@
         <div class="left-user">
           <echart *ngIf="hasP3Chart" [chartType]="p3Chart" class="chart"></echart>
           <div class="right-info">
-            <div class="txt">Subscriber</div>
+            <div class="txt">Valid User</div>
             <div class="num">{{userQty3}}</div>
           </div>
+        </div>
+
+        <div class="left-user">
+            <echart *ngIf="hasP1Chart" [chartType]="p1Chart" class="chart"></echart>
+            <div class="right-info">
+                <div class="txt">Subscriber</div>
+                <div class="num">{{userQty4}}</div>
+            </div>
         </div>
       </div>
 
     </div>
 
     <div class="center user-layout">
-      <div class="title">User Location</div>
+      <div class="title">User Heat Map</div>
       <echart *ngIf="hasPie4Chart" [chartType]="pie4Chart" class="chart"></echart>
     </div>
 

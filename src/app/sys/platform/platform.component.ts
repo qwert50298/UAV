@@ -31,7 +31,7 @@ export class PlatformComponent implements OnInit {
   public pv:any;
 
   public pageVisit: string;
-  public dataVolumn: string;
+  public dataVolumn: any;
   public hasPieChart: boolean;
   public hasBarChart: boolean;
   public hasLineChart: boolean;
@@ -46,11 +46,11 @@ export class PlatformComponent implements OnInit {
     this.hasBarChart = false;
     this.hasLineChart = false;
 
-    let param = {
-      company_account: 'test2017',
-      login_name: 'test2017',
-      password: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
-    };
+    //let param = {
+    //  company_account: 'test2017',
+    //  login_name: 'test2017',
+    //  password: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+    //};
     let _this = this;
 
     _this.refresh();
@@ -95,8 +95,20 @@ export class PlatformComponent implements OnInit {
         this.memoryTotal = res.Memory.total;
         this.memoryPercent = res.Memory.percent;
         this.pageVisit = res.pv.today;
-        this.dataVolumn = res.DataVolume;
 
+          let dv = Math.floor(parseFloat(res.DataVolume.split("'").join(""))/(1024*1024));
+          this.dataVolumn = toThousands(dv);
+
+          function toThousands(num) {
+            var result = [ ], counter = 0;
+            num = (num || 0).toString().split('');
+            for (var i = num.length - 1; i >= 0; i--) {
+              counter++;
+              result.unshift(num[i]);
+              if (!(counter % 3) && i != 0) { result.unshift("'"); }
+            }
+            return result.join('');
+          }
 
         let option1 = {
           series: [{
@@ -191,7 +203,7 @@ export class PlatformComponent implements OnInit {
 
         this.chart4 = {
           grid:{
-            left:"5%",
+            left:"15%",
             top:"20%",
             height:"50%"
           },
@@ -251,7 +263,7 @@ export class PlatformComponent implements OnInit {
         };
       },
         error => {
-        console.log(error); 
+        console.log(error);
         this.router.navigate(['login']);
       }
     );

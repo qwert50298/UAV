@@ -15,6 +15,7 @@ export class SysMonitorComponent implements OnInit {
   public p1Chart = {};
   public p2Chart = {};
   public p3Chart = {};
+  public p4Chart = {};
   public pie4Chart = {};
   public line5Chart = {};
   public line6Chart = {};
@@ -26,6 +27,7 @@ export class SysMonitorComponent implements OnInit {
   public hasP1Chart: boolean;
   public hasP2Chart: boolean;
   public hasP3Chart: boolean;
+  public hasP4Chart: boolean;
   public hasPie4Chart: boolean;
   public hasLine5Chart: boolean;
   public hasLine6Chart:boolean;
@@ -41,6 +43,7 @@ export class SysMonitorComponent implements OnInit {
   public userQty1:number;
   public userQty2:number;
   public userQty3:number;
+  public userQty4:number;
 
   public tradeToday:String;
   public orderToday:String;
@@ -56,6 +59,7 @@ export class SysMonitorComponent implements OnInit {
     this.hasP1Chart = false;
     this.hasP2Chart = false;
     this.hasP3Chart = false;
+    this.hasP4Chart = false;
     this.hasPie4Chart = false;
     this.hasLine5Chart = false;
     this.hasLine6Chart = false;
@@ -64,29 +68,18 @@ export class SysMonitorComponent implements OnInit {
     this.hasLine9Chart = false;
     this.hasBar10Chart = false;
 
-
-    let param = {
-      company_account: 'test2017',
-      login_name: 'test2017',
-      password: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
-    };
+    //let param = {
+    //  company_account: 'test2017',
+    //  login_name: 'test2017',
+    //  password: '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92'
+    //};
     let _this = this;
 
     _this.refresh();
     setInterval(function () {
       _this.refresh();
     }, 1000 * 60 * 60);
-    // this.sysMonitorService.login(param).subscribe(
-    //     res => {
-    //     _this.refresh();
-    //     setInterval(function () {
-    //       _this.refresh();
-    //     }, 1000 * 60 * 60);
-    //   },
-    //     error => {
-    //     console.log(error);
-    //   }
-    // );
+
   }
 
   refresh()
@@ -98,6 +91,7 @@ export class SysMonitorComponent implements OnInit {
         this.hasP1Chart = true;
         this.hasP2Chart = true;
         this.hasP3Chart = true;
+          this.hasP4Chart = true;
         this.hasPie4Chart = true;
         this.hasLine5Chart = true;
         this.hasLine6Chart = true;
@@ -107,8 +101,10 @@ export class SysMonitorComponent implements OnInit {
         this.userQty1 = userQty[0];
         this.userQty2 = userQty[1];
         this.userQty3 = userQty[2];
+          this.userQty4 = userQty[3];
         let activeUser = serveData.activeUser;
         let RegisteredUser = serveData.RegisteredUser;
+          let AllRegisteredUser = serveData.AllRegisteredUser;
         this.p1Chart = {
           textStyle: {
             color: 'rgba(255, 255, 255, 0.3)'
@@ -303,7 +299,7 @@ export class SysMonitorComponent implements OnInit {
               data: [
                 {
                   value: userQty[2],
-                  name: 'Registered User',
+                  name: 'Valid User',
                   tooltip: {
                     trigger: 'item',
                     position: [10, 10],
@@ -326,7 +322,7 @@ export class SysMonitorComponent implements OnInit {
                 },
                 {
                   value: 0,
-                  name: 'Other User',
+                  name: 'InValid User',
                   label: {
                     normal: {
                       show: false
@@ -357,6 +353,90 @@ export class SysMonitorComponent implements OnInit {
             }
           ]
         };
+
+          this.p4Chart = {
+            textStyle: {
+              color: 'rgba(255, 255, 255, 0.3)'
+            },
+            labelLine: {
+              normal: {
+                lineStyle: {
+                  color: 'rgba(0,0 ,0 ,0 )'
+                }
+              }
+            },
+            tooltip: {
+              trigger: 'item',
+              position: [10, 10],
+              formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+              orient: 'vertical',
+              left: 'left',
+            },
+            series: [
+              {
+                name: 'User',
+                type: 'pie',
+                radius: '50%',
+                center: ['23%', '55%'],
+                data: [
+                  {
+                    value: userQty[3],
+                    name: 'Subscriber User',
+                    tooltip: {
+                      trigger: 'item',
+                      position: [10, 10],
+                      formatter: "{b} : {c} ({d}%)"
+                    },
+                    label: {
+                      normal: {
+                        show: false
+                      }
+                    },
+                    selected: true,
+                    itemStyle: {
+                      normal: {
+                        // 设置扇形的颜色
+                        color: ['#3398DB'],
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                      }
+                    }
+                  },
+                  {
+                    value: 0,
+                    name: 'Other User',
+                    label: {
+                      normal: {
+                        show: false
+                      }
+                    },
+                    tooltip: {
+                      position: [20, 10],
+                      trigger: 'item',
+                      formatter: "{b} : {c} ({d}%)"
+                    },
+                    itemStyle: {
+                      normal: {
+                        // 设置扇形的颜色
+                        color: ['#696969'],
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                      }
+                    }
+                  }
+                ],
+                itemStyle: {
+                  emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                  }
+                }
+              }
+            ]
+          };
         let location = res.retbody.getUserInfo.location;
         this.setPie4Chart(location);
 
@@ -421,7 +501,8 @@ export class SysMonitorComponent implements OnInit {
         RegisteredUser.forEach(function(item){
           var date = _self.sysMonitorService.monthInEn(item.date);
           line6Xdata.push(date);
-        })
+        });
+
         this.line6Chart = {
           title: {
             text: '',
@@ -469,6 +550,22 @@ export class SysMonitorComponent implements OnInit {
                 }
               },
               symbol: 'none'
+            },
+            {
+              name: 'AllRegistered',
+              type: 'line',
+              data: AllRegisteredUser,
+              lineStyle:{
+                normal:{
+                  color:'#ffd153'
+                }
+              },
+              itemStyle:{
+                normal:{
+                  color:'#ffd153'
+                }
+              },
+              symbol: 'none'
             }
 
           ]
@@ -482,6 +579,7 @@ export class SysMonitorComponent implements OnInit {
 
     this.sysMonitorService.getTradeOrderInfo({}).subscribe(
         res => {
+          console.log(res);
         this.hasLine7Chart = true;
         this.hasBar8Chart = true;
         this.hasLine9Chart = true;
@@ -775,19 +873,21 @@ export class SysMonitorComponent implements OnInit {
           label: {
             normal: {
               formatter: function (params) {
-                return params.name + '\n'
+                return params.name
                   //+
                   //params.value[2];
               },
               position: 'top',
-              show: true
-            }
-          },
-          itemStyle: {
-            normal: {
-              color: '#fff',
+              show: true,
+              color:'#808080'
             }
           }
+          //,
+          //itemStyle: {
+          //  normal: {
+          //    color: '#fff',
+          //  }
+          //}
         },
         {
           name: '',
@@ -816,17 +916,18 @@ export class SysMonitorComponent implements OnInit {
               },
               position: 'center',
               show: true,
-              color:'#9d9d9d'
+              color:'#ffffff'
             },
             emphasis: {
               show: true
             }
-          },
-          itemStyle: {
-            normal: {
-              color: '#fff',
-            }
           }
+          //,
+          //itemStyle: {
+          //  normal: {
+          //    color: '#fff',
+          //  }
+          //}
         },
         {
           name: '',
@@ -851,16 +952,17 @@ export class SysMonitorComponent implements OnInit {
           label: {
             normal: {
               formatter: function (params) {
-                return params.value[2];
+                return '';
               },
               position: 'center',
               show: true,
-              color:'#9d9d9d'
+              color:'#ffffff'
             },
             emphasis: {
               show: true
             }
-          },
+          }
+          ,
           itemStyle: {
             normal: {
               color: 'rgba(241,89,79,0.50)',
@@ -889,10 +991,10 @@ export class SysMonitorComponent implements OnInit {
         name: total[3].percent + " " + total[3].value,
         value: total[3].value
       }, {
-        name: total[2].percent + " " + total[4].value,
+        name: total[2].percent + " " + total[2].value,
         value: total[2].value
       }, {
-        name: total[1].percent + " " + total[4].value,
+        name: total[1].percent + " " + total[1].value,
         value: total[1].value
       }, {
         name: total[0].percent + " " + total[0].value,
@@ -987,10 +1089,10 @@ export class SysMonitorComponent implements OnInit {
         name: order[3].percent + " " + order[3].value,
         value: order[3].value
       }, {
-        name: order[2].percent + " " + order[4].value,
+        name: order[2].percent + " " + order[2].value,
         value: order[2].value
       }, {
-        name: order[1].percent + " " + order[4].value,
+        name: order[1].percent + " " + order[1].value,
         value: order[1].value
       }, {
         name: order[0].percent + " " + order[0].value,
