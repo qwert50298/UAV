@@ -16,9 +16,20 @@ app.use('/*', function (req, res, next) {
   next();
 })
 
-app.post('/admin/dashboard/getUserInfo',function(req,res){
-  var result;
-  result = {
+//登录
+app.post('/reg/employee/login',function(req, res){
+  var result = {
+    "code": 0,
+    "detail": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDg0NzMzNzcsIm5hbWUiOiJ6aGFuZ3lvbmdfbmV3IiwidXNlcl9pZCI6MX0.1dc_hmifgwd0kDMdZXiPbO82wlbCwSHBj7dv07mz-xk"
+  }
+  res.json(result);
+})
+
+
+app.post('/wholesale_dashboard/getUserInfo',function(req,res){
+  var result = {};
+  result.retbody = {};
+  result.retbody.getUserInfo = {
     "location":
       [
         {name: '拉萨', value: 24},
@@ -129,9 +140,10 @@ app.post('/admin/dashboard/getUserInfo',function(req,res){
   res.json(result);
 });
 
-app.post('/admin/dashboard/getTradeOrderInfo',function(req,res){
-  var result;
-  result = {
+app.post('/wholesale_dashboard/getTradeOrderInfo',function(req,res){
+  var result = {};
+  result.retbody = {};
+  result.retbody.getTradeOrderInfo = {
     "trade": {
       "tradeToday": '43,505',
       "tradeNums": [
@@ -255,8 +267,10 @@ app.post('/admin/dashboard/getTradeOrderInfo',function(req,res){
 });
 
 
-app.post('/admin/dashboard/getPlatformInfo',function(req,res){
-  var result = {
+app.post('/wholesale_dashboard/getPlatformInfo',function(req,res){
+  var result = {};
+  result.retbody = {};
+  result.retbody.getTradeOrderInfo = {
     "host": {
       "cur": 140,
       "total": 200,
