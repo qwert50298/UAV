@@ -1,0 +1,33 @@
+.content{
+  padding:5px 20px ;
+}
+.title{
+  margin-bottom: 8px;
+}
+.location_table{
+  float: left;
+  width:60%;
+  margin-right: 20px;
+  //border: 1px solid #d8d8d8;
+  height:355px;
+  th{
+    text-align: center;
+    background: grey;
+  }
+  td{
+    height: 20px;
+    text-align: center;
+    background: #fff;
+  }
+}
+.ant-table-bordered .ant-table-thead > tr > th {
+  border-bottom: 1px solid dimgrey;
+  background: dimgrey;
+  text-align: center;
+}
+.location_map{
+  float: left;
+  width:35%;
+  border: 8px solid #fff;
+  height:355px;
+}

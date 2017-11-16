@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SysComponent } from './sys/sys.component';
+import { MainComponent } from './main/main.component';
 import { SysMonitorComponent } from './sys/sys-monitor/sys-monitor.component';
 import { EChartOptionDirective1 } from './sys/sys-monitor/echart-option.directive';
 import { PlatformComponent } from './sys/platform/platform.component';
@@ -17,13 +17,23 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'sys',
-    component: SysComponent,
+    path: 'main',
+    component: MainComponent,
+    // children: [
+    //   {
+    //     path: '',
+    //     loadChildren: './main/main.home.module#MainModule'
+    //   }
+    // ]
+  },
+  {
+    path: 'check',
+    component: MainComponent,
     children: [
-      { path: '', redirectTo: 'project', pathMatch: 'full' },
-      // { path: 'login', component: LoginComponent },
-      { path: 'project', component: SysMonitorComponent },
-      { path: 'platform', component: PlatformComponent }
+      {
+        path: '',
+        loadChildren: './check-management/check.management.module#checkManagementModule'
+      }
     ]
   }
 ];
